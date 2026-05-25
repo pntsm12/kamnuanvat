@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="BcwokyN2W4FMCCIj4YbvGcFCJojtQgojttCnNHCTtL4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คำนวณ VAT ออนไลน์</title>
+<meta name="description" content="คำนวณ VAT ออนไลน์ฟรี บวก VAT 7% แยก VAT ออกจากราคารวม คำนวณ VAT + Service Charge ร้านอาหาร ใช้งานง่าย ไม่ต้องโหลดแอป">
+<meta name="keywords" content="คำนวณ VAT, บวก VAT, VAT 7%, ภาษีมูลค่าเพิ่ม, แยก VAT, service charge, ร้านอาหาร">
+<meta property="og:title" content="คำนวณ VAT ออนไลน์">
+<meta property="og:description" content="คำนวณ VAT ออนไลน์ฟรี บวก VAT 7% แยก VAT ออกจากราคารวม พร้อม Service Charge">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://kamnuanvat.com/">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- Google AdSense -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+:root {
+  --bg:#FFFFFF; --bg2:#F7F7F5; --bg3:#F0EFEC;
+  --border:#E4E4E0; --border2:#D4D4CF;
+  --text:#1A1917; --text2:#706F6B; --text3:#B0AFA9;
+  --ink:#1A1917; --accent:#2563EB;
+}
+html { scroll-behavior:smooth; }
+body { font-family:'Sarabun',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+header { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); height:52px; display:flex; align-items:center; padding:0 24px; }
+.logo { font-family:'Noto Serif Thai',serif; font-size:20px; font-weight:700; color:var(--ink); }
+
+.ad-strip { background:var(--bg2); border-bottom:1px solid var(--border); display:flex; justify-content:center; padding:8px 16px; }
+.ad-728 { width:100%; max-width:728px; height:90px; background:var(--bg); border:1.5px dashed var(--border2); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--text3); font-size:12px; }
+@media(max-width:600px){.ad-728{height:60px;}}
+.ad-mid { display:flex; justify-content:center; margin:28px 0; }
+
+.page-wrap { max-width:640px; margin:0 auto; padding:40px 20px 64px; }
+.page-heading { margin-bottom:28px; }
+.page-heading h1 { font-family:'Noto Serif Thai',serif; font-size:clamp(32px,7vw,48px); font-weight:700; color:var(--ink); line-height:1.15; letter-spacing:-0.8px; }
+.page-heading p { margin-top:8px; font-size:15px; color:var(--text2); }
+
+/* Tabs */
+.type-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:24px; }
+.type-tab { padding:10px 8px; border:1.5px solid var(--border); border-radius:9px; background:var(--bg); font-family:'Sarabun',sans-serif; font-size:14px; font-weight:600; color:var(--text2); cursor:pointer; text-align:center; transition:all .15s; line-height:1.4; }
+.type-tab.active { border-color:var(--ink); background:var(--ink); color:#fff; }
+.type-tab:hover:not(.active) { border-color:var(--border2); }
+
+.field-label { font-size:13px; font-weight:600; color:var(--text2); letter-spacing:0.3px; margin-bottom:8px; display:block; }
+.hint { font-size:13px; color:var(--text3); margin-bottom:12px; line-height:1.6; }
+
+.input-wrap { display:flex; align-items:center; border:1.5px solid var(--border); border-radius:8px; overflow:hidden; background:var(--bg); transition:border-color .15s,box-shadow .15s; margin-bottom:12px; }
+.input-wrap:focus-within { border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
+.input-wrap input { flex:1; padding:11px 14px; border:none; outline:none; font-family:'Sarabun',sans-serif; font-size:20px; font-weight:600; color:var(--ink); background:transparent; width:100%; }
+.input-wrap input::placeholder { color:var(--text3); font-weight:400; font-size:15px; }
+.input-suffix { padding:0 14px; font-size:14px; font-weight:600; color:var(--text3); border-left:1px solid var(--border); background:var(--bg2); min-height:46px; display:flex; align-items:center; white-space:nowrap; }
+
+.calc-panel { display:none; }
+.calc-panel.active { display:block; }
+
+.btn-calc { width:100%; margin-top:4px; padding:13px; background:var(--ink); color:#fff; border:none; border-radius:9px; font-family:'Sarabun',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:opacity .15s,transform .1s; }
+.btn-calc:hover { opacity:0.85; }
+.btn-calc:active { transform:scale(0.99); }
+
+/* Result */
+.result-box { display:none; margin-top:20px; animation:fadeUp .3s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);} }
+
+.result-main { padding:24px 0 20px; border-top:1.5px solid var(--border); border-bottom:1.5px solid var(--border); margin-bottom:16px; }
+.result-label { font-size:12px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--text3); margin-bottom:6px; }
+.result-num { font-family:'Noto Serif Thai',serif; font-size:clamp(52px,13vw,80px); font-weight:700; color:var(--ink); line-height:1; letter-spacing:-2px; }
+.result-unit { font-family:'Noto Serif Thai',serif; font-size:22px; font-weight:400; color:var(--text2); margin-left:6px; vertical-align:bottom; display:inline-block; margin-bottom:6px; }
+.result-detail { font-size:15px; color:var(--text2); margin-top:10px; }
+.result-detail strong { color:var(--ink); font-weight:600; }
+
+/* Stats rows */
+.stats-row { display:grid; gap:1px; background:var(--border); border:1.5px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:12px; }
+.stats-2 { grid-template-columns:1fr 1fr; }
+.stats-3 { grid-template-columns:1fr 1fr 1fr; }
+.stats-4 { grid-template-columns:1fr 1fr; }
+.stat-cell { background:var(--bg); padding:16px; text-align:center; }
+.stat-num { font-family:'Noto Serif Thai',serif; font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-0.5px; line-height:1.2; }
+.stat-label { font-size:12px; color:var(--text3); margin-top:3px; }
+
+.btn-share { width:100%; padding:12px; background:transparent; border:1.5px solid var(--border); border-radius:9px; font-family:'Sarabun',sans-serif; font-size:14px; color:var(--text2); cursor:pointer; margin-bottom:12px; display:flex; align-items:center; justify-content:center; gap:8px; transition:all .15s; }
+.btn-share:hover { border-color:var(--ink); color:var(--ink); }
+
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--ink); color:#fff; padding:10px 20px; border-radius:8px; font-size:14px; font-weight:500; transition:transform .3s ease; z-index:999; pointer-events:none; }
+.toast.show { transform:translateX(-50%) translateY(0); }
+
+.info-section { border-top:1px solid var(--border); padding-top:32px; }
+.info-section h2 { font-family:'Noto Serif Thai',serif; font-size:18px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+.info-section h2.mt { margin-top:24px; }
+.info-section p { font-size:14px; color:var(--text2); line-height:1.85; }
+
+footer { border-top:1px solid var(--border); padding:24px 20px; text-align:center; font-size:13px; color:var(--text3); }
+footer a { color:var(--text3); text-decoration:none; }
+footer a:hover { color:var(--text2); text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<header><span class="logo">คำนวณ VAT</span></header>
+
+<div class="ad-strip">
+  <div class="ad-728">📢 Google AdSense — 728×90 Leaderboard (Top)</div>
+</div>
+
+<div class="page-wrap">
+
+  <div class="page-heading">
+    <h1>คำนวณ VAT</h1>
+    <p>บวก VAT แยก VAT และคำนวณ Service Charge ได้ทันที</p>
+  </div>
+
+  <div class="type-grid">
+    <button class="type-tab active" onclick="switchType('add')">บวก VAT</button>
+    <button class="type-tab" onclick="switchType('extract')">แยก VAT ออกจากราคารวม</button>
+    <button class="type-tab" onclick="switchType('sc')">VAT + Service Charge</button>
+    <button class="type-tab" onclick="switchType('custom')">ปรับ % เองได้</button>
+  </div>
+
+  <!-- ── Panel 1: บวก VAT ── -->
+  <div class="calc-panel active" id="panel-add">
+    <span class="field-label">ราคาก่อน VAT</span>
+    <div class="input-wrap">
+      <input type="number" id="a-price" placeholder="เช่น 1000" min="0" inputmode="decimal">
+      <span class="input-suffix">บาท</span>
+    </div>
+    <p class="hint">ตัวอย่าง: ราคาสินค้า 1,000 บาท บวก VAT 7% รวมเป็นเท่าไหร่</p>
+    <button class="btn-calc" onclick="calcAdd()">คำนวณ</button>
+
+    <div class="result-box" id="res-add">
+      <div class="result-main">
+        <div class="result-label">ราคารวม VAT 7%</div>
+        <div>
+          <span class="result-num" id="a-total">–</span>
+          <span class="result-unit">บาท</span>
+        </div>
+        <div class="result-detail" id="a-detail"></div>
+      </div>
+      <div class="stats-row stats-2">
+        <div class="stat-cell">
+          <div class="stat-num" id="a-before">–</div>
+          <div class="stat-label">ราคาก่อน VAT (บาท)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" id="a-vat">–</div>
+          <div class="stat-label">VAT 7% (บาท)</div>
+        </div>
+      </div>
+      <button class="btn-share" onclick="copyResult('add')">📋 คัดลอกผลลัพธ์</button>
+    </div>
+  </div>
+
+  <!-- ── Panel 2: แยก VAT ออกจากราคารวม ── -->
+  <div class="calc-panel" id="panel-extract">
+    <span class="field-label">ราคารวม VAT แล้ว</span>
+    <div class="input-wrap">
+      <input type="number" id="e-price" placeholder="เช่น 1070" min="0" inputmode="decimal">
+      <span class="input-suffix">บาท</span>
+    </div>
+    <p class="hint">ตัวอย่าง: ราคาที่จ่ายจริง 1,070 บาท (รวม VAT แล้ว) อยากรู้ว่า VAT คือกี่บาท และราคาก่อน VAT คือเท่าไหร่</p>
+    <button class="btn-calc" onclick="calcExtract()">คำนวณ</button>
+
+    <div class="result-box" id="res-extract">
+      <div class="result-main">
+        <div class="result-label">VAT ที่รวมอยู่ในราคา</div>
+        <div>
+          <span class="result-num" id="e-vat">–</span>
+          <span class="result-unit">บาท</span>
+        </div>
+        <div class="result-detail" id="e-detail"></div>
+      </div>
+      <div class="stats-row stats-2">
+        <div class="stat-cell">
+          <div class="stat-num" id="e-before">–</div>
+          <div class="stat-label">ราคาก่อน VAT (บาท)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" id="e-total">–</div>
+          <div class="stat-label">ราคารวม VAT (บาท)</div>
+        </div>
+      </div>
+      <button class="btn-share" onclick="copyResult('extract')">📋 คัดลอกผลลัพธ์</button>
+    </div>
+  </div>
+
+  <!-- ── Panel 3: VAT + Service Charge ── -->
+  <div class="calc-panel" id="panel-sc">
+    <span class="field-label">ราคาอาหาร (ก่อน SC และ VAT)</span>
+    <div class="input-wrap">
+      <input type="number" id="s-price" placeholder="เช่น 500" min="0" inputmode="decimal">
+      <span class="input-suffix">บาท</span>
+    </div>
+    <p class="hint">ตัวอย่าง: สั่งอาหาร 500 บาท ร้านคิด Service Charge 10% + VAT 7% จ่ายจริงเท่าไหร่</p>
+    <button class="btn-calc" onclick="calcSC()">คำนวณ</button>
+
+    <div class="result-box" id="res-sc">
+      <div class="result-main">
+        <div class="result-label">ราคาที่ต้องจ่ายจริง</div>
+        <div>
+          <span class="result-num" id="s-total">–</span>
+          <span class="result-unit">บาท</span>
+        </div>
+        <div class="result-detail" id="s-detail"></div>
+      </div>
+      <div class="stats-row stats-4">
+        <div class="stat-cell">
+          <div class="stat-num" id="s-food">–</div>
+          <div class="stat-label">ราคาอาหาร (บาท)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" id="s-sc">–</div>
+          <div class="stat-label">Service Charge 10% (บาท)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" id="s-vat">–</div>
+          <div class="stat-label">VAT 7% (บาท)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" id="s-extra">–</div>
+          <div class="stat-label">บวกเพิ่มจากราคาอาหาร (บาท)</div>
+        </div>
+      </div>
+      <button class="btn-share" onclick="copyResult('sc')">📋 คัดลอกผลลัพธ์</button>
+    </div>
+  </div>
+
+  <!-- ── Panel 4: ปรับ % เองได้ ── -->
+  <div class="calc-panel" id="panel-custom">
+    <span class="field-label">ราคาก่อนภาษี</span>
+    <div class="input-wrap">
+      <input type="number" id="c-price" placeholder="เช่น 1000" min="0" inputmode="decimal">
+      <span class="input-suffix">บาท</span>
+    </div>
+    <span class="field-label">อัตราภาษี</span>
+    <div class="input-wrap">
+      <input type="number" id="c-rate" placeholder="เช่น 10" min="0" max="100" inputmode="decimal">
+      <span class="input-suffix">%</span>
+    </div>
+    <p class="hint">ตัวอย่าง: ใช้สำหรับ VAT ประเทศอื่น หรือภาษีอื่นๆ ที่ % ไม่ใช่ 7%</p>
+    <button class="btn-calc" onclick="calcCustom()">คำนวณ</button>
+
+    <div class="result-box" id="res-custom">
+      <div class="result-main">
+        <div class="result-label">ราคารวมภาษี</div>
+        <div>
+          <span class="result-num" id="c-total">–</span>
+          <span class="result-unit">บาท</span>
+        </div>
+        <div class="result-detail" id="c-detail"></div>
+      </div>
+      <div class="stats-row stats-2">
+        <div class="stat-cell">
+          <div class="stat-num" id="c-before">–</div>
+          <div class="stat-label">ราคาก่อนภาษี (บาท)</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" id="c-tax">–</div>
+          <div class="stat-label">ภาษี (บาท)</div>
+        </div>
+      </div>
+      <button class="btn-share" onclick="copyResult('custom')">📋 คัดลอกผลลัพธ์</button>
+    </div>
+  </div>
+
+  <div class="ad-mid">
+    <div class="ad-728">📢 Google AdSense — 728×90 Leaderboard (In-content)</div>
+  </div>
+
+  <div class="info-section">
+    <h2>VAT คืออะไร</h2>
+    <p>VAT หรือภาษีมูลค่าเพิ่ม (Value Added Tax) ในประเทศไทยอยู่ที่ 7% ของราคาสินค้าหรือบริการ ร้านค้าและธุรกิจที่จดทะเบียน VAT จะต้องบวก VAT เข้าไปในราคาขาย</p>
+    <h2 class="mt">Service Charge คืออะไร</h2>
+    <p>Service Charge หรือค่าบริการ คือค่าธรรมเนียมที่ร้านอาหารบางร้านเรียกเก็บเพิ่มเติม ส่วนใหญ่อยู่ที่ 10% โดยคิดจากราคาอาหารก่อน แล้วจึงนำยอดรวมมาบวก VAT 7% อีกครั้ง ทำให้ราคาจริงที่จ่ายสูงกว่าราคาในเมนู</p>
+    <h2 class="mt">วิธีแยก VAT ออกจากราคารวม</h2>
+    <p>ถ้ารู้ราคารวม VAT แล้ว สามารถแยก VAT ออกได้โดย นำราคารวมหาร 1.07 จะได้ราคาก่อน VAT แล้วนำไปลบกับราคารวมจะได้ตัว VAT ครับ</p>
+  </div>
+
+  <div class="ad-mid" style="margin-bottom:0;">
+    <div class="ad-728">📢 Google AdSense — 728×90 Leaderboard (Bottom)</div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2568 คำนวณ VAT ออนไลน์ · <a href="#">นโยบายความเป็นส่วนตัว</a> · <a href="#">ติดต่อ</a></p>
+  <p style="margin-top:4px;">ผลลัพธ์เป็นการคำนวณเบื้องต้น ควรตรวจสอบกับนักบัญชีสำหรับการยื่นภาษี</p>
+</footer>
+
+<div class="toast" id="toast">คัดลอกแล้ว!</div>
+
+<script>
+const TYPES = ['add','extract','sc','custom'];
+let activeType = 'add';
+
+function fmt(n) { return parseFloat(n.toFixed(2)).toLocaleString('th-TH'); }
+
+function switchType(type) {
+  activeType = type;
+  document.querySelectorAll('.type-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick').includes(`'${type}'`));
+  });
+  TYPES.forEach(t => {
+    document.getElementById('panel-' + t).classList.toggle('active', t === type);
+    const res = document.getElementById('res-' + t);
+    if (res) res.style.display = 'none';
+  });
+}
+
+function show(id) {
+  const el = document.getElementById(id);
+  el.style.display = 'block';
+  requestAnimationFrame(() => el.scrollIntoView({ behavior:'smooth', block:'nearest' }));
+}
+
+/* ── 1. บวก VAT ── */
+function calcAdd() {
+  const price = parseFloat(document.getElementById('a-price').value);
+  if (!price) { alert('กรุณากรอกราคาก่อน VAT'); return; }
+  const vat   = price * 0.07;
+  const total = price + vat;
+  document.getElementById('a-total').textContent  = fmt(total);
+  document.getElementById('a-before').textContent = fmt(price);
+  document.getElementById('a-vat').textContent    = fmt(vat);
+  document.getElementById('a-detail').innerHTML   = `ราคา <strong>${fmt(price)}</strong> บาท + VAT <strong>${fmt(vat)}</strong> บาท`;
+  show('res-add');
+}
+
+/* ── 2. แยก VAT ออก ── */
+function calcExtract() {
+  const total = parseFloat(document.getElementById('e-price').value);
+  if (!total) { alert('กรุณากรอกราคารวม VAT'); return; }
+  const before = total / 1.07;
+  const vat    = total - before;
+  document.getElementById('e-vat').textContent    = fmt(vat);
+  document.getElementById('e-before').textContent = fmt(before);
+  document.getElementById('e-total').textContent  = fmt(total);
+  document.getElementById('e-detail').innerHTML   = `ราคารวม <strong>${fmt(total)}</strong> บาท มี VAT <strong>${fmt(vat)}</strong> บาท รวมอยู่`;
+  show('res-extract');
+}
+
+/* ── 3. VAT + Service Charge ── */
+function calcSC() {
+  const food = parseFloat(document.getElementById('s-price').value);
+  if (!food) { alert('กรุณากรอกราคาอาหาร'); return; }
+  const sc    = food * 0.10;
+  const sub   = food + sc;
+  const vat   = sub * 0.07;
+  const total = sub + vat;
+  const extra = total - food;
+  document.getElementById('s-total').textContent  = fmt(total);
+  document.getElementById('s-food').textContent   = fmt(food);
+  document.getElementById('s-sc').textContent     = fmt(sc);
+  document.getElementById('s-vat').textContent    = fmt(vat);
+  document.getElementById('s-extra').textContent  = fmt(extra);
+  document.getElementById('s-detail').innerHTML   = `อาหาร <strong>${fmt(food)}</strong> + SC <strong>${fmt(sc)}</strong> + VAT <strong>${fmt(vat)}</strong> บาท`;
+  show('res-sc');
+}
+
+/* ── 4. ปรับ % เอง ── */
+function calcCustom() {
+  const price = parseFloat(document.getElementById('c-price').value);
+  const rate  = parseFloat(document.getElementById('c-rate').value);
+  if (!price || isNaN(rate)) { alert('กรุณากรอกข้อมูลให้ครบ'); return; }
+  const tax   = price * rate / 100;
+  const total = price + tax;
+  document.getElementById('c-total').textContent  = fmt(total);
+  document.getElementById('c-before').textContent = fmt(price);
+  document.getElementById('c-tax').textContent    = fmt(tax);
+  document.getElementById('c-detail').innerHTML   = `ราคา <strong>${fmt(price)}</strong> บาท + ภาษี <strong>${rate}%</strong> = <strong>${fmt(tax)}</strong> บาท`;
+  show('res-custom');
+}
+
+/* ── Copy ── */
+function copyResult(type) {
+  let text = '';
+  if (type === 'add') {
+    text = `คำนวณ VAT\nราคาก่อน VAT ${document.getElementById('a-before').textContent} บาท\nVAT 7% = ${document.getElementById('a-vat').textContent} บาท\nราคารวม VAT = ${document.getElementById('a-total').textContent} บาท`;
+  } else if (type === 'extract') {
+    text = `แยก VAT\nราคารวม VAT ${document.getElementById('e-total').textContent} บาท\nราคาก่อน VAT = ${document.getElementById('e-before').textContent} บาท\nVAT = ${document.getElementById('e-vat').textContent} บาท`;
+  } else if (type === 'sc') {
+    text = `VAT + Service Charge\nราคาอาหาร ${document.getElementById('s-food').textContent} บาท\nService Charge 10% = ${document.getElementById('s-sc').textContent} บาท\nVAT 7% = ${document.getElementById('s-vat').textContent} บาท\nราคาที่จ่ายจริง = ${document.getElementById('s-total').textContent} บาท`;
+  } else if (type === 'custom') {
+    text = `คำนวณภาษี\nราคาก่อนภาษี ${document.getElementById('c-before').textContent} บาท\nภาษี = ${document.getElementById('c-tax').textContent} บาท\nราคารวมภาษี = ${document.getElementById('c-total').textContent} บาท`;
+  }
+  text += '\nคำนวณได้ที่ kamnuanvat.com';
+  navigator.clipboard.writeText(text).then(showToast).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta); showToast();
+  });
+}
+
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>
