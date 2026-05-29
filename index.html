@@ -2,544 +2,318 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="BcwokyN2W4FMCCIj4YbvGcFCJojtQgojttCnNHCTtL4" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>คำนวณ VAT ออนไลน์</title>
-<meta name="description" content="คำนวณ VAT ออนไลน์ฟรี บวก VAT 7% แยก VAT ออกจากราคารวม คำนวณ VAT + Service Charge ร้านอาหาร ใช้งานง่าย ไม่ต้องโหลดแอป">
-<meta name="keywords" content="คำนวณ VAT, บวก VAT, VAT 7%, ภาษีมูลค่าเพิ่ม, แยก VAT, service charge, ร้านอาหาร">
-<meta property="og:title" content="คำนวณ VAT ออนไลน์">
-<meta property="og:description" content="คำนวณ VAT ออนไลน์ฟรี บวก VAT 7% แยก VAT ออกจากราคารวม พร้อม Service Charge">
+<meta name="google-site-verification" content="BcwokyN2W4FMCCIj4YbvGcFCJojtQgojttCnNHCTtL4">
+<title>คำนวณ VAT ออนไลน์ — บวก VAT แยก VAT Service Charge</title>
+<meta name="description" content="คำนวณ VAT ออนไลน์ฟรี บวก VAT 7% แยก VAT ออกจากราคารวม คำนวณ VAT + Service Charge ร้านอาหาร และปรับ % ภาษีได้เอง">
+<meta name="keywords" content="คำนวณ VAT, บวก VAT, VAT 7%, ภาษีมูลค่าเพิ่ม, แยก VAT, service charge">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pntsm12.github.io/kamnuanvat/">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://kamnuanvat.com/">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="คำนวณ VAT ออนไลน์ — บวก VAT แยก VAT Service Charge">
+<meta property="og:description" content="คำนวณ VAT ออนไลน์ฟรี บวก/แยก VAT 7% พร้อม Service Charge">
+<meta property="og:url" content="https://pntsm12.github.io/kamnuanvat/">
+<meta property="og:locale" content="th_TH">
+<meta property="og:site_name" content="คำนวณ">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebApplication","name":"คำนวณ VAT ออนไลน์","url":"https://pntsm12.github.io/kamnuanvat/","description":"เครื่องมือคำนวณ VAT ออนไลน์ฟรี บวก VAT แยก VAT Service Charge","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"THB"},"inLanguage":"th","isAccessibleForFree":true},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"VAT 7% คืออะไร ใครต้องจ่าย","acceptedAnswer":{"@type":"Answer","text":"VAT หรือภาษีมูลค่าเพิ่ม 7% คือภาษีที่เก็บจากการซื้อขายสินค้าและบริการในไทย ผู้บริโภคเป็นผู้จ่ายผ่านราคาสินค้า ผู้ประกอบการที่จดทะเบียน VAT มีหน้าที่เก็บและนำส่งกรมสรรพากร"}},
+      {"@type":"Question","name":"แยก VAT ออกจากราคารวมยังไง","acceptedAnswer":{"@type":"Answer","text":"ราคาก่อน VAT = ราคารวม ÷ 1.07 และ VAT = ราคารวม − ราคาก่อน VAT เช่น ราคารวม 107 บาท ราคาก่อน VAT = 107÷1.07 = 100 บาท VAT = 7 บาท"}},
+      {"@type":"Question","name":"Service Charge คืออะไร คิดยังไง","acceptedAnswer":{"@type":"Answer","text":"Service Charge 10% คือค่าบริการที่ร้านอาหารเก็บเพิ่มจากราคาอาหาร โดย VAT 7% จะคิดจากราคาอาหาร + Service Charge รวมกัน ทำให้ราคาสุดท้ายบวกเพิ่มจากราคาอาหาร 17.7%"}},
+      {"@type":"Question","name":"ราคา VAT รวม กับ VAT แยก ต่างกันยังไง","acceptedAnswer":{"@type":"Answer","text":"ราคา VAT รวม คือราคาที่มี VAT อยู่ในตัวเลขแล้ว เช่น 107 บาท ส่วนราคา VAT แยก คือราคาก่อน VAT เช่น 100 บาท + VAT 7 บาท ใบกำกับภาษีมักแสดงแบบแยก"}}
+    ]}
+  ]
+}
+</script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1063556443578237" crossorigin="anonymous"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@700&family=Sarabun:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@700&family=Sarabun:wght@400;500;600&display=swap">
 <style>
-*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-:root {
-  --bg:#FFFFFF; --bg2:#F7F7F5; --bg3:#F0EFEC;
-  --border:#E4E4E0; --border2:#D4D4CF;
-  --text:#1A1917; --text2:#706F6B; --text3:#B0AFA9;
-  --ink:#1A1917; --accent:#2563EB;
-  --header-bg:rgba(255,255,255,0.92); --logo-fill:#1A1917;
-}
-[data-theme="dark"] {
-  --bg:#0F0F0F; --bg2:#1A1A1A; --bg3:#222222;
-  --border:#2A2A2A; --border2:#333333;
-  --text:#F0EFE8; --text2:#9A9890; --text3:#555450;
-  --ink:#F0EFE8; --accent:#60A5FA;
-  --header-bg:rgba(15,15,15,0.92); --logo-fill:#F0EFE8;
-}
-html { scroll-behavior:smooth; }
-body { font-family:'Sarabun',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; line-height:1.6; -webkit-font-smoothing:antialiased; transition:background .3s,color .3s; }
-
-header { position:sticky; top:0; z-index:100; background:var(--header-bg); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); height:56px; display:flex; align-items:center; padding:0 20px; gap:10px; }
-.header-logo { display:flex; align-items:center; gap:10px; text-decoration:none; flex:1; }
-.logo-icon svg { width:32px; height:32px; display:block; }
-.logo-text { display:flex; flex-direction:column; line-height:1.1; }
-.logo-text-th { font-family:'Noto Serif Thai',serif; font-size:16px; font-weight:700; color:var(--text); }
-.logo-text-en { font-size:10px; font-weight:500; color:var(--text3); letter-spacing:1.5px; text-transform:uppercase; }
-.dark-toggle { width:36px; height:36px; border:1.5px solid var(--border); border-radius:50%; background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; color:var(--text2); flex-shrink:0; }
-.dark-toggle:hover { border-color:var(--border2); color:var(--text); }
-
-.ad-strip { background:var(--bg2); border-bottom:1px solid var(--border); display:flex; justify-content:center; padding:8px 16px; }
-.ad-728 { width:100%; max-width:728px; height:90px; background:var(--bg); border:1.5px dashed var(--border2); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--text3); font-size:12px; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#F8F8F7;--s0:#FFFFFF;--s1:#F2F1EE;--s2:#ECEAE6;--b0:rgba(0,0,0,0.07);--b1:rgba(0,0,0,0.13);--t0:#18181A;--t1:#4A4946;--t2:#7A7872;--ink:#18181A;--inv:#FFFFFF;--r:8px;--r-lg:12px;}
+[data-theme="dark"]{--bg:#111110;--s0:#1C1C1A;--s1:#242422;--s2:#2C2B28;--b0:rgba(255,255,255,0.07);--b1:rgba(255,255,255,0.13);--t0:#EDEAE2;--t1:#A8A49C;--t2:#68655E;--ink:#EDEAE2;--inv:#111110;}
+:focus-visible{outline:2px solid #2563EB;outline-offset:2px;border-radius:4px;}
+:focus:not(:focus-visible){outline:none;}
+.skip-link{position:absolute;top:-100%;left:16px;background:var(--ink);color:var(--inv);padding:8px 16px;border-radius:0 0 var(--r) var(--r);font-size:13px;font-weight:600;text-decoration:none;z-index:999;transition:top .15s;}
+.skip-link:focus{top:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--t0);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .2s,color .2s;}
+header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:center;padding:0 20px;gap:12px;border-bottom:1px solid var(--b0);background:rgba(248,248,247,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+[data-theme="dark"] header{background:rgba(17,17,16,0.92);}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex:1;}
+.logo svg{width:30px;height:30px;display:block;flex-shrink:0;}
+.logo-t{display:flex;flex-direction:column;line-height:1.1;}
+.logo-th{font-family:'Noto Serif Thai',serif;font-size:15px;font-weight:700;color:var(--t0);}
+.logo-en{font-size:9px;font-weight:600;color:var(--t2);letter-spacing:2px;}
+.hdr-right{display:flex;align-items:center;gap:8px;}
+.back-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border:1px solid var(--b0);border-radius:20px;font-family:'Sarabun',sans-serif;font-size:12px;color:var(--t1);text-decoration:none;transition:border-color .15s,color .15s;white-space:nowrap;}
+.back-btn:hover{border-color:var(--b1);color:var(--t0);}
+.back-btn svg{width:13px;height:13px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.dark-btn{width:32px;height:32px;border:1px solid var(--b0);border-radius:6px;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--t1);transition:all .15s;}
+.dark-btn:hover{border-color:var(--b1);color:var(--t0);background:var(--s1);}
+.dark-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.ad-bar{display:flex;justify-content:center;padding:8px 16px;background:var(--s1);border-bottom:1px solid var(--b0);}
+.ad-728{width:100%;max-width:728px;height:90px;background:var(--s0);border:1px dashed var(--b1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--t2);font-size:12px;}
 @media(max-width:600px){.ad-728{height:60px;}}
-.ad-mid { display:flex; justify-content:center; margin:28px 0; }
-
-.page-wrap { max-width:640px; margin:0 auto; padding:40px 20px 64px; }
-.page-heading { margin-bottom:28px; }
-.page-heading h1 { font-family:'Noto Serif Thai',serif; font-size:clamp(32px,7vw,48px); font-weight:700; color:var(--ink); line-height:1.15; letter-spacing:-0.8px; }
-.page-heading p { margin-top:8px; font-size:15px; color:var(--text2); }
-
-/* Tabs */
-.type-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:24px; }
-.type-tab { padding:10px 8px; border:1.5px solid var(--border); border-radius:9px; background:var(--bg); font-family:'Sarabun',sans-serif; font-size:14px; font-weight:600; color:var(--text2); cursor:pointer; text-align:center; transition:all .15s; line-height:1.4; }
-.type-tab.active { border-color:var(--ink); background:var(--ink); color:var(--bg); }
-.type-tab:hover:not(.active) { border-color:var(--border2); }
-
-.field-label { font-size:13px; font-weight:600; color:var(--text2); letter-spacing:0.3px; margin-bottom:8px; display:block; }
-.hint { font-size:13px; color:var(--text3); margin-bottom:12px; line-height:1.6; }
-
-.input-wrap { display:flex; align-items:center; border:1.5px solid var(--border); border-radius:8px; overflow:hidden; background:var(--bg); transition:border-color .15s,box-shadow .15s; margin-bottom:12px; }
-.input-wrap:focus-within { border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
-.input-wrap input { flex:1; padding:11px 14px; border:none; outline:none; font-family:'Sarabun',sans-serif; font-size:20px; font-weight:600; color:var(--ink); background:transparent; width:100%; }
-.input-wrap input::placeholder { color:var(--text3); font-weight:400; font-size:15px; }
-.input-suffix { padding:0 14px; font-size:14px; font-weight:600; color:var(--text3); border-left:1px solid var(--border); background:var(--bg2); min-height:46px; display:flex; align-items:center; white-space:nowrap; }
-
-.calc-panel { display:none; }
-.calc-panel.active { display:block; }
-
-.btn-calc { width:100%; margin-top:4px; padding:13px; background:var(--ink); color:var(--bg); border:none; border-radius:9px; font-family:'Sarabun',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:opacity .15s,transform .1s; }
-.btn-calc:hover { opacity:0.85; }
-.btn-calc:active { transform:scale(0.99); }
-
-/* Result */
-.result-box { display:none; margin-top:20px; animation:fadeUp .3s ease; }
-@keyframes fadeUp { from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);} }
-
-.result-main { padding:24px 0 20px; border-top:1.5px solid var(--border); border-bottom:1.5px solid var(--border); margin-bottom:16px; }
-.result-label { font-size:12px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--text3); margin-bottom:6px; }
-.result-num { font-family:'Noto Serif Thai',serif; font-size:clamp(52px,13vw,80px); font-weight:700; color:var(--ink); line-height:1; letter-spacing:-2px; }
-.result-unit { font-family:'Noto Serif Thai',serif; font-size:22px; font-weight:400; color:var(--text2); margin-left:6px; vertical-align:bottom; display:inline-block; margin-bottom:6px; }
-.result-detail { font-size:15px; color:var(--text2); margin-top:10px; }
-.result-detail strong { color:var(--ink); font-weight:600; }
-
-/* Stats rows */
-.stats-row { display:grid; gap:1px; background:var(--border); border:1.5px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:12px; }
-.stats-2 { grid-template-columns:1fr 1fr; }
-.stats-3 { grid-template-columns:1fr 1fr 1fr; }
-.stats-4 { grid-template-columns:1fr 1fr; }
-.stat-cell { background:var(--bg); padding:16px; text-align:center; }
-.stat-num { font-family:'Noto Serif Thai',serif; font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-0.5px; line-height:1.2; }
-.stat-label { font-size:12px; color:var(--text3); margin-top:3px; }
-
-.btn-share { width:100%; padding:12px; background:transparent; border:1.5px solid var(--border); border-radius:9px; font-family:'Sarabun',sans-serif; font-size:14px; color:var(--text2); cursor:pointer; margin-bottom:12px; display:flex; align-items:center; justify-content:center; gap:8px; transition:all .15s; }
-.btn-share:hover { border-color:var(--ink); color:var(--ink); }
-
-.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--ink); color:var(--bg); padding:10px 20px; border-radius:8px; font-size:14px; font-weight:500; transition:transform .3s ease; z-index:999; pointer-events:none; }
-.toast.show { transform:translateX(-50%) translateY(0); }
-
-.info-section { border-top:1px solid var(--border); padding-top:32px; }
-.info-section h2 { font-family:'Noto Serif Thai',serif; font-size:18px; font-weight:700; color:var(--ink); margin-bottom:8px; }
-.info-section h2.mt { margin-top:24px; }
-.info-section p { font-size:14px; color:var(--text2); line-height:1.85; }
-
-footer { border-top:1px solid var(--border); padding:24px 20px; text-align:center; font-size:13px; color:var(--text3); }
-footer a { color:var(--text3); text-decoration:none; }
-footer a:hover { color:var(--text2); text-decoration:underline; }
-
-.share-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:12px; }
-.btn-share-action { padding:11px 8px; border-radius:9px; border:1.5px solid var(--border); background:transparent; font-family:'Sarabun',sans-serif; font-size:13px; font-weight:600; color:var(--text2); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; }
-.btn-share-action:hover { border-color:var(--border2); color:var(--text); }
-.history-section { margin-top:32px; border-top:1px solid var(--border); padding-top:24px; }
-.history-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
-.history-title { font-size:13px; font-weight:600; color:var(--text2); }
-.btn-clear-history { font-size:12px; color:var(--text3); background:none; border:none; cursor:pointer; font-family:'Sarabun',sans-serif; }
-.btn-clear-history:hover { color:var(--text2); }
-.history-list { display:flex; flex-direction:column; gap:8px; }
-.history-item { background:var(--bg2); border:1.5px solid var(--border); border-radius:9px; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; }
-.history-item-left { flex:1; }
-.history-item-result { font-family:'Noto Serif Thai',serif; font-size:18px; font-weight:700; color:var(--text); line-height:1.2; }
-.history-item-detail { font-size:12px; color:var(--text3); margin-top:2px; }
-.history-item-right { font-size:12px; color:var(--text3); }
-.history-empty { font-size:14px; color:var(--text3); text-align:center; padding:16px 0; }
+.page{max-width:600px;margin:0 auto;padding:28px 20px 72px;}
+.page-hd{margin-bottom:20px;}
+.page-hd h1{font-family:'Noto Serif Thai',serif;font-size:clamp(22px,4vw,30px);font-weight:700;color:var(--t0);line-height:1.1;letter-spacing:-.3px;white-space:nowrap;}
+@media(max-width:380px){.page-hd h1{white-space:normal;font-size:22px;}}
+.page-hd p{margin-top:6px;font-size:14px;color:var(--t1);line-height:1.6;}
+.mode-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:14px;}
+.m-tab{padding:9px 4px;border:1px solid var(--b0);border-radius:var(--r);background:var(--s0);font-family:'Sarabun',sans-serif;font-size:12px;font-weight:500;color:var(--t1);cursor:pointer;transition:all .15s;text-align:center;line-height:1.4;}
+.m-tab:hover{border-color:var(--b1);color:var(--t0);}
+.m-tab.on{background:var(--ink);border-color:var(--ink);color:var(--inv);}
+.card{background:var(--s0);border:1px solid var(--b0);border-radius:var(--r-lg);overflow:hidden;margin-bottom:10px;}
+.card-body{padding:16px 18px;}
+.field{margin-bottom:14px;}
+.field:last-child{margin-bottom:0;}
+.lbl{font-size:13px;font-weight:600;color:var(--t0);margin-bottom:6px;display:block;}
+.hint{font-size:13px;color:var(--t1);margin-top:4px;}
+.inp-row{display:flex;align-items:center;border:1px solid var(--b0);border-radius:var(--r);overflow:hidden;background:var(--s0);transition:border-color .15s,box-shadow .15s;}
+.inp-row:focus-within{border-color:var(--b1);box-shadow:0 0 0 3px rgba(0,0,0,0.04);}
+[data-theme="dark"] .inp-row:focus-within{box-shadow:0 0 0 3px rgba(255,255,255,0.04);}
+.inp-suf{padding:0 11px;font-size:13px;color:var(--t2);background:var(--s1);height:40px;display:flex;align-items:center;border-left:1px solid var(--b0);flex-shrink:0;}
+.inp-row input{flex:1;height:40px;border:none;background:transparent;padding:0 11px;font-family:'Sarabun',sans-serif;font-size:16px;color:var(--t0);outline:none;min-width:0;}
+.inp-row input::placeholder{color:var(--t2);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:420px){.grid2{grid-template-columns:1fr;}}
+.btn-calc{width:100%;height:44px;background:var(--ink);color:var(--inv);border:none;border-radius:var(--r);font-family:'Sarabun',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .15s;margin-top:4px;}
+.btn-calc:hover{opacity:.87;}
+.result-box{background:var(--s0);border:1px solid var(--b0);border-radius:var(--r-lg);overflow:hidden;margin-top:10px;display:none;}
+.result-top{padding:18px 20px;border-bottom:1px solid var(--b0);text-align:center;}
+.result-lbl{font-size:11px;font-weight:600;color:var(--t2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
+.result-num{font-family:'Noto Serif Thai',serif;font-size:clamp(36px,8vw,52px);font-weight:700;color:var(--t0);line-height:1;}
+.result-unit{font-size:15px;color:var(--t1);margin-left:4px;}
+.result-sub{font-size:13px;color:var(--t1);margin-top:6px;}
+.result-body{padding:14px 20px;}
+.bd-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--b0);font-size:13px;}
+.bd-row:last-child{border-bottom:none;}
+.bd-lbl{color:var(--t1);}
+.bd-val{font-weight:600;color:var(--t0);}
+.hist-wrap{margin-top:14px;}
+.hist-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.hist-lbl{font-size:12px;font-weight:600;color:var(--t1);}
+.hist-clr{font-size:12px;color:var(--t2);background:none;border:none;cursor:pointer;font-family:'Sarabun',sans-serif;padding:0;}
+.hist-clr:hover{color:var(--t1);}
+.hist-list{display:flex;flex-direction:column;gap:5px;}
+.h-item{background:var(--s0);border:1px solid var(--b0);border-radius:var(--r);padding:9px 13px;}
+.h-main{font-size:15px;font-weight:600;color:var(--t0);}
+.h-sub{font-size:11px;color:var(--t2);margin-top:2px;}
+.h-empty{font-size:13px;color:var(--t2);padding:12px;text-align:center;}
+.faq-wrap{margin-top:28px;border-top:1px solid var(--b0);padding-top:24px;}
+.faq-h2{font-family:'Noto Serif Thai',serif;font-size:18px;font-weight:700;color:var(--t0);margin-bottom:14px;}
+.faq-item{border:1px solid var(--b0);border-radius:var(--r);overflow:hidden;margin-bottom:8px;}
+.faq-q{width:100%;padding:13px 16px;background:var(--s0);border:none;font-family:'Sarabun',sans-serif;font-size:14px;font-weight:500;color:var(--t0);text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:background .15s;}
+.faq-q:hover{background:var(--s1);}
+.faq-q svg{width:14px;height:14px;stroke:var(--t2);stroke-width:2;fill:none;stroke-linecap:round;flex-shrink:0;transition:transform .2s;}
+.faq-q[aria-expanded="true"] svg{transform:rotate(180deg);}
+.faq-a{padding:0 16px;font-size:13px;color:var(--t1);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s ease;}
+.faq-a.open{max-height:300px;padding:0 16px 14px;}
+.related-wrap{margin-top:20px;border-top:1px solid var(--b0);padding-top:20px;}
+.related-lbl{font-size:11px;font-weight:600;color:var(--t2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;}
+.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;}
+.related-card{display:flex;align-items:center;gap:10px;padding:10px 13px;background:var(--s0);border:1px solid var(--b0);border-radius:var(--r);text-decoration:none;color:var(--t0);transition:border-color .14s,background .14s;}
+.related-card:hover{border-color:var(--b1);background:var(--s1);}
+.related-ico{width:28px;height:28px;background:var(--ink);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.related-ico svg{width:12px;height:12px;stroke:var(--inv);stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.related-name{font-size:12px;font-weight:500;}
+footer{border-top:1px solid var(--b0);padding:20px;text-align:center;font-size:12px;color:var(--t2);}
+footer a{color:var(--t2);text-decoration:none;}footer a:hover{color:var(--t1);}
+@media(max-width:480px){header,.page{padding-left:16px;padding-right:16px;}}
 </style>
 </head>
 <body>
-
-<header>
-  <a class="header-logo" href="/">
-    <div class="logo-icon">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" rx="7" fill="var(--logo-fill)"/>
-        <text x="5" y="24" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="var(--bg)">K</text>
-        <text x="14" y="27" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="var(--bg)">+×=</text>
-      </svg>
-    </div>
-    <div class="logo-text">
-      <span class="logo-text-th">คำนวณ</span>
-      <span class="logo-text-en">KAMNUAN</span>
-    </div>
+<a class="skip-link" href="#main-content">ข้ามไปเนื้อหาหลัก</a>
+<header role="banner">
+  <a class="logo" href="/" aria-label="คำนวณ หน้าหลัก">
+    <svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect width="30" height="30" rx="6" fill="var(--ink)"/><text x="4" y="22" font-family="Arial Black,sans-serif" font-size="20" font-weight="900" fill="var(--inv)">K</text><text x="13" y="25" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="var(--inv)">+x=</text></svg>
+    <div class="logo-t"><span class="logo-th">คำนวณ</span><span class="logo-en">KAMNUAN</span></div>
   </a>
-  <button class="dark-toggle" onclick="toggleDark()" title="เปลี่ยนธีม">
-    <svg id="iconSun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
-      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-    <svg id="iconMoon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-  </button>
+  <div class="hdr-right">
+    <a class="back-btn" href="/" aria-label="กลับไปดูเครื่องมือทั้งหมด"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>เครื่องมือทั้งหมด</a>
+    <button class="dark-btn" id="darkBtn" onclick="toggleDark()" aria-label="สลับโหมดสีเข้ม/สว่าง" type="button">
+      <svg id="iSun" style="display:none" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg id="iMoon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
 </header>
-
-<div class="ad-strip">
-  <div class="ad-728">📢 Google AdSense — 728×90 Leaderboard (Top)</div>
+<div class="ad-bar" role="complementary" aria-label="โฆษณา">
+  <div class="ad-728"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1063556443578237" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 </div>
 
-<div class="page-wrap">
-
-  <div class="page-heading">
+<main id="main-content" class="page">
+  <div class="page-hd">
     <h1>คำนวณ VAT</h1>
-    <p>บวก VAT แยก VAT และคำนวณ Service Charge ได้ทันที</p>
+    <p>คำนวณ VAT ภาษีมูลค่าเพิ่ม 7% ฟรี บวก VAT และถอด VAT จากราคารวม<br>รองรับ Service Charge ร้านอาหาร และปรับอัตรา % เอง</p>
   </div>
 
-  <div class="type-grid">
-    <button class="type-tab active" onclick="switchType('add')">บวก VAT</button>
-    <button class="type-tab" onclick="switchType('extract')">แยก VAT ออกจากราคารวม</button>
-    <button class="type-tab" onclick="switchType('sc')">VAT + Service Charge</button>
-    <button class="type-tab" onclick="switchType('custom')">ปรับ % เองได้</button>
+  <div class="mode-tabs" role="tablist">
+    <button class="m-tab on" id="tab0" onclick="setMode(0)" role="tab" aria-selected="true" type="button">บวก VAT</button>
+    <button class="m-tab" id="tab1" onclick="setMode(1)" role="tab" aria-selected="false" type="button">ถอด VAT</button>
+    <button class="m-tab" id="tab2" onclick="setMode(2)" role="tab" aria-selected="false" type="button">VAT + Service<br>Charge</button>
+    <button class="m-tab" id="tab3" onclick="setMode(3)" role="tab" aria-selected="false" type="button">กำหนด %<br>เอง</button>
   </div>
 
-  <!-- ── Panel 1: บวก VAT ── -->
-  <div class="calc-panel active" id="panel-add">
-    <span class="field-label">ราคาก่อน VAT</span>
-    <div class="input-wrap">
-      <input type="number" id="a-price" placeholder="เช่น 1000" min="0" inputmode="decimal">
-      <span class="input-suffix">บาท</span>
-    </div>
-    <p class="hint">ตัวอย่าง: ราคาสินค้า 1,000 บาท บวก VAT 7% รวมเป็นเท่าไหร่</p>
-    <button class="btn-calc" onclick="calcAdd()">คำนวณ</button>
-
-    <div class="result-box" id="res-add">
-      <div class="result-main">
-        <div class="result-label">ราคารวม VAT 7%</div>
-        <div>
-          <span class="result-num" id="a-total">–</span>
-          <span class="result-unit">บาท</span>
-        </div>
-        <div class="result-detail" id="a-detail"></div>
+  <!-- Mode 0: บวก VAT -->
+  <div id="m0">
+    <div class="card"><div class="card-body">
+      <div class="field"><label class="lbl" for="a-price">ราคาก่อน VAT (บาท)</label>
+        <div class="inp-row"><input type="number" id="a-price" placeholder="เช่น 1,000" inputmode="decimal"></div>
       </div>
-      <div class="stats-row stats-2">
-        <div class="stat-cell">
-          <div class="stat-num" id="a-before">–</div>
-          <div class="stat-label">ราคาก่อน VAT (บาท)</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num" id="a-vat">–</div>
-          <div class="stat-label">VAT 7% (บาท)</div>
-        </div>
+      <div class="hint">VAT 7% ตามอัตราปัจจุบันของประเทศไทย</div>
+      <button class="btn-calc" onclick="calcAdd()" type="button" style="margin-top:12px">คำนวณ</button>
+    </div></div>
+    <div class="result-box" id="r0">
+      <div class="result-top">
+        <div class="result-lbl">ราคารวม VAT</div>
+        <div><span class="result-num" id="a-total">–</span><span class="result-unit">บาท</span></div>
+        <div class="result-sub" id="a-detail"></div>
       </div>
-      <div class="share-row">
-        <button class="btn-share-action" onclick="shareLineResult(getShareText('add'), 'https://pntsm12.github.io/kamnuanvat/')">Line</button>
-        <button class="btn-share-action" onclick="shareFbResult('https://pntsm12.github.io/kamnuanvat/')">Facebook</button>
-        <button class="btn-share-action" onclick="copyResult('add')">คัดลอก</button>
+      <div class="result-body">
+        <div class="bd-row"><span class="bd-lbl">ราคาก่อน VAT</span><span class="bd-val" id="a-before">–</span></div>
+        <div class="bd-row"><span class="bd-lbl">VAT 7%</span><span class="bd-val" id="a-vat">–</span></div>
       </div>
     </div>
   </div>
 
-  <!-- ── Panel 2: แยก VAT ออกจากราคารวม ── -->
-  <div class="calc-panel" id="panel-extract">
-    <span class="field-label">ราคารวม VAT แล้ว</span>
-    <div class="input-wrap">
-      <input type="number" id="e-price" placeholder="เช่น 1070" min="0" inputmode="decimal">
-      <span class="input-suffix">บาท</span>
-    </div>
-    <p class="hint">ตัวอย่าง: ราคาที่จ่ายจริง 1,070 บาท (รวม VAT แล้ว) อยากรู้ว่า VAT คือกี่บาท และราคาก่อน VAT คือเท่าไหร่</p>
-    <button class="btn-calc" onclick="calcExtract()">คำนวณ</button>
-
-    <div class="result-box" id="res-extract">
-      <div class="result-main">
-        <div class="result-label">VAT ที่รวมอยู่ในราคา</div>
-        <div>
-          <span class="result-num" id="e-vat">–</span>
-          <span class="result-unit">บาท</span>
-        </div>
-        <div class="result-detail" id="e-detail"></div>
+  <!-- Mode 1: แยก VAT -->
+  <div id="m1" style="display:none">
+    <div class="card"><div class="card-body">
+      <div class="field"><label class="lbl" for="e-price">ราคารวม VAT แล้ว (บาท)</label>
+        <div class="inp-row"><input type="number" id="e-price" placeholder="เช่น 1,070" inputmode="decimal"></div>
+        <div class="hint">กรอกราคาที่มี VAT รวมอยู่แล้ว เพื่อหาว่า VAT เท่าไหร่</div>
       </div>
-      <div class="stats-row stats-2">
-        <div class="stat-cell">
-          <div class="stat-num" id="e-before">–</div>
-          <div class="stat-label">ราคาก่อน VAT (บาท)</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num" id="e-total">–</div>
-          <div class="stat-label">ราคารวม VAT (บาท)</div>
-        </div>
+      <button class="btn-calc" onclick="calcExtract()" type="button">คำนวณ</button>
+    </div></div>
+    <div class="result-box" id="r1">
+      <div class="result-top">
+        <div class="result-lbl">VAT ที่รวมอยู่</div>
+        <div><span class="result-num" id="e-vat">–</span><span class="result-unit">บาท</span></div>
+        <div class="result-sub" id="e-detail"></div>
       </div>
-      <div class="share-row">
-        <button class="btn-share-action" onclick="shareLineResult(getShareText('extract'), 'https://pntsm12.github.io/kamnuanvat/')">Line</button>
-        <button class="btn-share-action" onclick="shareFbResult('https://pntsm12.github.io/kamnuanvat/')">Facebook</button>
-        <button class="btn-share-action" onclick="copyResult('extract')">คัดลอก</button>
+      <div class="result-body">
+        <div class="bd-row"><span class="bd-lbl">ราคาก่อน VAT</span><span class="bd-val" id="e-before">–</span></div>
+        <div class="bd-row"><span class="bd-lbl">ราคารวม VAT</span><span class="bd-val" id="e-total">–</span></div>
       </div>
     </div>
   </div>
 
-  <!-- ── Panel 3: VAT + Service Charge ── -->
-  <div class="calc-panel" id="panel-sc">
-    <span class="field-label">ราคาอาหาร (ก่อน SC และ VAT)</span>
-    <div class="input-wrap">
-      <input type="number" id="s-price" placeholder="เช่น 500" min="0" inputmode="decimal">
-      <span class="input-suffix">บาท</span>
-    </div>
-    <p class="hint">ตัวอย่าง: สั่งอาหาร 500 บาท ร้านคิด Service Charge 10% + VAT 7% จ่ายจริงเท่าไหร่</p>
-    <button class="btn-calc" onclick="calcSC()">คำนวณ</button>
-
-    <div class="result-box" id="res-sc">
-      <div class="result-main">
-        <div class="result-label">ราคาที่ต้องจ่ายจริง</div>
-        <div>
-          <span class="result-num" id="s-total">–</span>
-          <span class="result-unit">บาท</span>
-        </div>
-        <div class="result-detail" id="s-detail"></div>
+  <!-- Mode 2: VAT + Service Charge -->
+  <div id="m2" style="display:none">
+    <div class="card"><div class="card-body">
+      <div class="field"><label class="lbl" for="s-price">ราคาอาหาร (บาท)</label>
+        <div class="inp-row"><input type="number" id="s-price" placeholder="เช่น 500" inputmode="decimal"></div>
+        <div class="hint">คำนวณ Service Charge 10% + VAT 7% แบบร้านอาหาร</div>
       </div>
-      <div class="stats-row stats-4">
-        <div class="stat-cell">
-          <div class="stat-num" id="s-food">–</div>
-          <div class="stat-label">ราคาอาหาร (บาท)</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num" id="s-sc">–</div>
-          <div class="stat-label">Service Charge 10% (บาท)</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num" id="s-vat">–</div>
-          <div class="stat-label">VAT 7% (บาท)</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num" id="s-extra">–</div>
-          <div class="stat-label">บวกเพิ่มจากราคาอาหาร (บาท)</div>
-        </div>
+      <button class="btn-calc" onclick="calcSC()" type="button">คำนวณ</button>
+    </div></div>
+    <div class="result-box" id="r2">
+      <div class="result-top">
+        <div class="result-lbl">ราคาที่ต้องจ่ายจริง</div>
+        <div><span class="result-num" id="s-total">–</span><span class="result-unit">บาท</span></div>
+        <div class="result-sub" id="s-detail"></div>
       </div>
-      <div class="share-row">
-        <button class="btn-share-action" onclick="shareLineResult(getShareText('sc'), 'https://pntsm12.github.io/kamnuanvat/')">Line</button>
-        <button class="btn-share-action" onclick="shareFbResult('https://pntsm12.github.io/kamnuanvat/')">Facebook</button>
-        <button class="btn-share-action" onclick="copyResult('sc')">คัดลอก</button>
+      <div class="result-body">
+        <div class="bd-row"><span class="bd-lbl">ราคาอาหาร</span><span class="bd-val" id="s-food">–</span></div>
+        <div class="bd-row"><span class="bd-lbl">Service Charge 10%</span><span class="bd-val" id="s-sc">–</span></div>
+        <div class="bd-row"><span class="bd-lbl">VAT 7%</span><span class="bd-val" id="s-vat">–</span></div>
+        <div class="bd-row"><span class="bd-lbl">บวกเพิ่มจากราคาอาหาร</span><span class="bd-val" id="s-extra">–</span></div>
       </div>
     </div>
   </div>
 
-  <!-- ── Panel 4: ปรับ % เองได้ ── -->
-  <div class="calc-panel" id="panel-custom">
-    <span class="field-label">ราคาก่อนภาษี</span>
-    <div class="input-wrap">
-      <input type="number" id="c-price" placeholder="เช่น 1000" min="0" inputmode="decimal">
-      <span class="input-suffix">บาท</span>
-    </div>
-    <span class="field-label">อัตราภาษี</span>
-    <div class="input-wrap">
-      <input type="number" id="c-rate" placeholder="เช่น 10" min="0" max="100" inputmode="decimal">
-      <span class="input-suffix">%</span>
-    </div>
-    <p class="hint">ตัวอย่าง: ใช้สำหรับ VAT ประเทศอื่น หรือภาษีอื่นๆ ที่ % ไม่ใช่ 7%</p>
-    <button class="btn-calc" onclick="calcCustom()">คำนวณ</button>
-
-    <div class="result-box" id="res-custom">
-      <div class="result-main">
-        <div class="result-label">ราคารวมภาษี</div>
-        <div>
-          <span class="result-num" id="c-total">–</span>
-          <span class="result-unit">บาท</span>
-        </div>
-        <div class="result-detail" id="c-detail"></div>
+  <!-- Mode 3: ปรับ % เอง -->
+  <div id="m3" style="display:none">
+    <div class="card"><div class="card-body">
+      <div class="grid2">
+        <div class="field"><label class="lbl" for="c-price">ราคาก่อนภาษี (บาท)</label><div class="inp-row"><input type="number" id="c-price" placeholder="เช่น 1,000" inputmode="decimal"></div></div>
+        <div class="field"><label class="lbl" for="c-rate">อัตราภาษี (%)</label><div class="inp-row"><input type="number" id="c-rate" placeholder="เช่น 10" inputmode="decimal"><div class="inp-suf" aria-hidden="true">%</div></div></div>
       </div>
-      <div class="stats-row stats-2">
-        <div class="stat-cell">
-          <div class="stat-num" id="c-before">–</div>
-          <div class="stat-label">ราคาก่อนภาษี (บาท)</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num" id="c-tax">–</div>
-          <div class="stat-label">ภาษี (บาท)</div>
-        </div>
+      <button class="btn-calc" onclick="calcCustom()" type="button">คำนวณ</button>
+    </div></div>
+    <div class="result-box" id="r3">
+      <div class="result-top">
+        <div class="result-lbl">ราคารวมภาษี</div>
+        <div><span class="result-num" id="c-total">–</span><span class="result-unit">บาท</span></div>
+        <div class="result-sub" id="c-detail"></div>
       </div>
-      <div class="share-row">
-        <button class="btn-share-action" onclick="shareLineResult(getShareText('custom'), 'https://pntsm12.github.io/kamnuanvat/')">Line</button>
-        <button class="btn-share-action" onclick="shareFbResult('https://pntsm12.github.io/kamnuanvat/')">Facebook</button>
-        <button class="btn-share-action" onclick="copyResult('custom')">คัดลอก</button>
+      <div class="result-body">
+        <div class="bd-row"><span class="bd-lbl">ราคาก่อนภาษี</span><span class="bd-val" id="c-before">–</span></div>
+        <div class="bd-row"><span class="bd-lbl">ภาษี</span><span class="bd-val" id="c-tax">–</span></div>
       </div>
     </div>
   </div>
 
-  <div class="history-section">
-    <div class="history-header">
-      <span class="history-title">ประวัติการคำนวณ</span>
-      <button class="btn-clear-history" onclick="clearHistory()">ล้างประวัติ</button>
+  <div class="hist-wrap">
+    <div class="hist-head"><span class="hist-lbl">ประวัติการคำนวณ</span><button class="hist-clr" onclick="clearHist()" type="button">ล้างประวัติ</button></div>
+    <div class="hist-list" id="histList"><div class="h-empty">ยังไม่มีประวัติ</div></div>
+  </div>
+
+  <div class="faq-wrap">
+    <h2 class="faq-h2">คำถามที่พบบ่อย</h2>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">VAT 7% คืออะไร ใครต้องจ่าย?<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a">VAT หรือภาษีมูลค่าเพิ่ม 7% คือภาษีที่เก็บจากการซื้อขายสินค้าและบริการในไทย ผู้บริโภคเป็นผู้จ่ายผ่านราคาสินค้า ผู้ประกอบการที่จดทะเบียน VAT มีหน้าที่เก็บและนำส่งกรมสรรพากร</div>
     </div>
-    <div class="history-list" id="historyList">
-      <div class="history-empty">ยังไม่มีประวัติการคำนวณ</div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">แยก VAT ออกจากราคารวมยังไง?<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a">ราคาก่อน VAT = ราคารวม ÷ 1.07 เช่น ราคารวม <strong>107 บาท</strong> ราคาก่อน VAT = 107÷1.07 = <strong>100 บาท</strong> VAT = 7 บาท</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Service Charge คืออะไร คิดยังไง?<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a">Service Charge 10% คือค่าบริการที่ร้านอาหารเก็บเพิ่ม VAT 7% คิดจากราคาอาหาร + SC รวม ทำให้ราคาสุดท้ายบวกเพิ่มจากราคาอาหาร <strong>17.7%</strong></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">ราคา VAT รวม กับ VAT แยก ต่างกันยังไง?<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a">ราคา VAT รวม คือราคาที่มี VAT อยู่แล้ว เช่น 107 บาท ราคา VAT แยก คือราคาก่อน VAT 100 บาท + VAT 7 บาท ใบกำกับภาษีมักแสดงแบบแยก</div>
     </div>
   </div>
-  <div class="ad-mid">
-    <div class="ad-728">📢 Google AdSense — 728×90 Leaderboard (In-content)</div>
+
+  <div class="related-wrap">
+    <div class="related-lbl">เครื่องมือที่เกี่ยวข้อง</div>
+    <div class="related-grid">
+      <a class="related-card" href="/kamnuanpercent/"><div class="related-ico"><svg viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div><span class="related-name">คิดเปอร์เซ็นต์</span></a>
+      <a class="related-card" href="/kamnuansunlod/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><span class="related-name">คิดส่วนลด</span></a>
+      <a class="related-card" href="/kamnuanphasi/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="related-name">คำนวณภาษีเงินได้</span></a>
+      <a class="related-card" href="/kamnuandokbia/"><div class="related-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><span class="related-name">คำนวณดอกเบี้ย</span></a>
+    </div>
   </div>
+</main>
 
-  <div class="info-section">
-    <h2>VAT คืออะไร</h2>
-    <p>VAT หรือภาษีมูลค่าเพิ่ม (Value Added Tax) ในประเทศไทยอยู่ที่ 7% ของราคาสินค้าหรือบริการ ร้านค้าและธุรกิจที่จดทะเบียน VAT จะต้องบวก VAT เข้าไปในราคาขาย</p>
-    <h2 class="mt">Service Charge คืออะไร</h2>
-    <p>Service Charge หรือค่าบริการ คือค่าธรรมเนียมที่ร้านอาหารบางร้านเรียกเก็บเพิ่มเติม ส่วนใหญ่อยู่ที่ 10% โดยคิดจากราคาอาหารก่อน แล้วจึงนำยอดรวมมาบวก VAT 7% อีกครั้ง ทำให้ราคาจริงที่จ่ายสูงกว่าราคาในเมนู</p>
-    <h2 class="mt">วิธีแยก VAT ออกจากราคารวม</h2>
-    <p>ถ้ารู้ราคารวม VAT แล้ว สามารถแยก VAT ออกได้โดย นำราคารวมหาร 1.07 จะได้ราคาก่อน VAT แล้วนำไปลบกับราคารวมจะได้ตัว VAT ครับ</p>
-  </div>
-
-  <div class="ad-mid" style="margin-bottom:0;">
-    <div class="ad-728">📢 Google AdSense — 728×90 Leaderboard (Bottom)</div>
-  </div>
-
-</div>
-
-<footer>
-  <p>© 2568 คำนวณ VAT ออนไลน์ · <a href="#">นโยบายความเป็นส่วนตัว</a> · <a href="#">ติดต่อ</a></p>
-  <p style="margin-top:4px;">ผลลัพธ์เป็นการคำนวณเบื้องต้น ควรตรวจสอบกับนักบัญชีสำหรับการยื่นภาษี</p>
+<footer role="contentinfo">
+  <p>© 2569 คำนวณ <a href="/">หน้าหลัก</a> <a href="/privacy.html">นโยบายความเป็นส่วนตัว</a></p>
 </footer>
 
-<div class="toast" id="toast">คัดลอกแล้ว!</div>
-
 <script>
-function initTheme(){const s=localStorage.getItem('theme');const p=window.matchMedia('(prefers-color-scheme: dark)').matches;applyTheme(s||(p?'dark':'light'));}
-function applyTheme(t){document.documentElement.setAttribute('data-theme',t);document.getElementById('iconSun').style.display=t==='dark'?'block':'none';document.getElementById('iconMoon').style.display=t==='light'?'block':'none';localStorage.setItem('theme',t);}
-function toggleDark(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');}
+function initTheme(){const s=localStorage.getItem('theme'),p=matchMedia('(prefers-color-scheme:dark)').matches;applyT(s||(p?'dark':'light'));}
+function applyT(t){document.documentElement.setAttribute('data-theme',t);document.getElementById('iSun').style.display=t==='dark'?'block':'none';document.getElementById('iMoon').style.display=t==='light'?'block':'none';document.getElementById('darkBtn').setAttribute('aria-label',t==='dark'?'เปลี่ยนเป็นโหมดสว่าง':'เปลี่ยนเป็นโหมดสีเข้ม');localStorage.setItem('theme',t);}
+function toggleDark(){applyT(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');}
 initTheme();
-
-const TYPES = ['add','extract','sc','custom'];
-let activeType = 'add';
-
-function fmt(n) { return parseFloat(n.toFixed(2)).toLocaleString('th-TH'); }
-
-function switchType(type) {
-  activeType = type;
-  document.querySelectorAll('.type-tab').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('onclick').includes(`'${type}'`));
-  });
-  TYPES.forEach(t => {
-    document.getElementById('panel-' + t).classList.toggle('active', t === type);
-    const res = document.getElementById('res-' + t);
-    if (res) res.style.display = 'none';
-  });
-}
-
-function show(id) {
-  const el = document.getElementById(id);
-  el.style.display = 'block';
-  requestAnimationFrame(() => el.scrollIntoView({ behavior:'smooth', block:'nearest' }));
-}
-
-/* ── 1. บวก VAT ── */
-function calcAdd() {
-  const price = parseFloat(document.getElementById('a-price').value);
-  if (!price) { alert('กรุณากรอกราคาก่อน VAT'); return; }
-  const vat   = price * 0.07;
-  const total = price + vat;
-  document.getElementById('a-total').textContent  = fmt(total);
-  document.getElementById('a-before').textContent = fmt(price);
-  document.getElementById('a-vat').textContent    = fmt(vat);
-  document.getElementById('a-detail').innerHTML   = `ราคา <strong>${fmt(price)}</strong> บาท + VAT <strong>${fmt(vat)}</strong> บาท`;
-  saveHistory('รวม VAT = '+fmt(total)+' บาท', 'ก่อน VAT '+fmt(price)+' บาท');
-  show('res-add');
-}
-
-/* ── 2. แยก VAT ออก ── */
-function calcExtract() {
-  const total = parseFloat(document.getElementById('e-price').value);
-  if (!total) { alert('กรุณากรอกราคารวม VAT'); return; }
-  const before = total / 1.07;
-  const vat    = total - before;
-  document.getElementById('e-vat').textContent    = fmt(vat);
-  document.getElementById('e-before').textContent = fmt(before);
-  document.getElementById('e-total').textContent  = fmt(total);
-  document.getElementById('e-detail').innerHTML   = `ราคารวม <strong>${fmt(total)}</strong> บาท มี VAT <strong>${fmt(vat)}</strong> บาท รวมอยู่`;
-  saveHistory('VAT = '+fmt(vat)+' บาท', 'จากราคารวม '+fmt(total)+' บาท');
-  show('res-extract');
-}
-
-/* ── 3. VAT + Service Charge ── */
-function calcSC() {
-  const food = parseFloat(document.getElementById('s-price').value);
-  if (!food) { alert('กรุณากรอกราคาอาหาร'); return; }
-  const sc    = food * 0.10;
-  const sub   = food + sc;
-  const vat   = sub * 0.07;
-  const total = sub + vat;
-  const extra = total - food;
-  document.getElementById('s-total').textContent  = fmt(total);
-  document.getElementById('s-food').textContent   = fmt(food);
-  document.getElementById('s-sc').textContent     = fmt(sc);
-  document.getElementById('s-vat').textContent    = fmt(vat);
-  document.getElementById('s-extra').textContent  = fmt(extra);
-  document.getElementById('s-detail').innerHTML   = `อาหาร <strong>${fmt(food)}</strong> + SC <strong>${fmt(sc)}</strong> + VAT <strong>${fmt(vat)}</strong> บาท`;
-  saveHistory('จ่ายจริง = '+fmt(total)+' บาท', 'อาหาร '+fmt(food)+' SC+VAT '+fmt(extra)+' บาท');
-  show('res-sc');
-}
-
-/* ── 4. ปรับ % เอง ── */
-function calcCustom() {
-  const price = parseFloat(document.getElementById('c-price').value);
-  const rate  = parseFloat(document.getElementById('c-rate').value);
-  if (!price || isNaN(rate)) { alert('กรุณากรอกข้อมูลให้ครบ'); return; }
-  const tax   = price * rate / 100;
-  const total = price + tax;
-  document.getElementById('c-total').textContent  = fmt(total);
-  document.getElementById('c-before').textContent = fmt(price);
-  document.getElementById('c-tax').textContent    = fmt(tax);
-  document.getElementById('c-detail').innerHTML   = `ราคา <strong>${fmt(price)}</strong> บาท + ภาษี <strong>${rate}%</strong> = <strong>${fmt(tax)}</strong> บาท`;
-  saveHistory('รวมภาษี = '+fmt(total)+' บาท', 'ภาษี '+rate+'% = '+fmt(tax)+' บาท');
-  show('res-custom');
-}
-
-/* ── Share ── */
-function getShareText(type) {
-  if (type === 'add')     return 'ราคาก่อน VAT ' + document.getElementById('a-before').textContent + ' + VAT ' + document.getElementById('a-vat').textContent + ' = ' + document.getElementById('a-total').textContent + ' บาท';
-  if (type === 'extract') return 'VAT ที่รวมอยู่ = ' + document.getElementById('e-vat').textContent + ' บาท (ก่อน VAT = ' + document.getElementById('e-before').textContent + ' บาท)';
-  if (type === 'sc')      return 'ราคาที่ต้องจ่าย = ' + document.getElementById('s-total').textContent + ' บาท (SC ' + document.getElementById('s-sc').textContent + ' + VAT ' + document.getElementById('s-vat').textContent + ')';
-  if (type === 'custom')  return 'ราคารวมภาษี = ' + document.getElementById('c-total').textContent + ' บาท';
-  return '';
-}
-
-/* ── Copy ── */
-function copyResult(type) {
-  let text = '';
-  if (type === 'add') {
-    text = `คำนวณ VAT\nราคาก่อน VAT ${document.getElementById('a-before').textContent} บาท\nVAT 7% = ${document.getElementById('a-vat').textContent} บาท\nราคารวม VAT = ${document.getElementById('a-total').textContent} บาท`;
-  } else if (type === 'extract') {
-    text = `แยก VAT\nราคารวม VAT ${document.getElementById('e-total').textContent} บาท\nราคาก่อน VAT = ${document.getElementById('e-before').textContent} บาท\nVAT = ${document.getElementById('e-vat').textContent} บาท`;
-  } else if (type === 'sc') {
-    text = `VAT + Service Charge\nราคาอาหาร ${document.getElementById('s-food').textContent} บาท\nService Charge 10% = ${document.getElementById('s-sc').textContent} บาท\nVAT 7% = ${document.getElementById('s-vat').textContent} บาท\nราคาที่จ่ายจริง = ${document.getElementById('s-total').textContent} บาท`;
-  } else if (type === 'custom') {
-    text = `คำนวณภาษี\nราคาก่อนภาษี ${document.getElementById('c-before').textContent} บาท\nภาษี = ${document.getElementById('c-tax').textContent} บาท\nราคารวมภาษี = ${document.getElementById('c-total').textContent} บาท`;
-  }
-  text += '\nคำนวณได้ที่ kamnuanvat.com';
-  navigator.clipboard.writeText(text).then(showToast).catch(() => {
-    const ta = document.createElement('textarea');
-    ta.value = text; document.body.appendChild(ta);
-    ta.select(); document.execCommand('copy');
-    document.body.removeChild(ta); showToast();
-  });
-}
-
-
-function saveHistory(result, detail) {
-  const item = {
-    result: result,
-    detail: detail,
-    time: new Date().toLocaleTimeString('th-TH', {hour:'2-digit', minute:'2-digit'})
-  };
-  let h = JSON.parse(localStorage.getItem('vatHistory') || '[]');
-  h.unshift(item); h = h.slice(0, 5);
-  localStorage.setItem('vatHistory', JSON.stringify(h));
-  renderHistory();
-}
-
-function renderHistory() {
-  const list = document.getElementById('historyList');
-  const h = JSON.parse(localStorage.getItem('vatHistory') || '[]');
-  if (!h.length) { list.innerHTML = '<div class="history-empty">ยังไม่มีประวัติการคำนวณ</div>'; return; }
-  list.innerHTML = h.map(item => `
-    <div class="history-item">
-      <div class="history-item-left">
-        <div class="history-item-result">${item.result}</div>
-        <div class="history-item-detail">${item.detail}</div>
-      </div>
-      <div class="history-item-right">${item.time}</div>
-    </div>`).join('');
-}
-
-function clearHistory() { localStorage.removeItem('vatHistory'); renderHistory(); }
-
-function shareResult(text, url) {
-  const fullText = text + '\n' + url;
-  return fullText;
-}
-
-function shareLineResult(text, url) {
-  window.open('https://line.me/R/msg/text/?' + encodeURIComponent(text + '\n' + url), '_blank');
-}
-
-function shareFbResult(url) {
-  window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
-}
-
-renderHistory();
-function showToast() {
-  const t = document.getElementById('toast');
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
-}
+function toggleFaq(btn){const e=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!e));btn.nextElementSibling.classList.toggle('open',!e);}
+function fmt(n){return parseFloat(n.toFixed(2)).toLocaleString('th-TH');}
+let mode=0;
+function setMode(m){mode=m;for(let i=0;i<4;i++){document.getElementById('tab'+i).classList.toggle('on',i===m);document.getElementById('tab'+i).setAttribute('aria-selected',i===m?'true':'false');document.getElementById('m'+i).style.display=i===m?'block':'none';}}
+const hist=JSON.parse(localStorage.getItem('vatHist')||'[]');
+function saveHist(r,d){hist.unshift({r,d,t:new Date().toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'})});if(hist.length>6)hist.pop();localStorage.setItem('vatHist',JSON.stringify(hist));renderHist();}
+function renderHist(){const el=document.getElementById('histList');if(!hist.length){el.innerHTML='<div class="h-empty">ยังไม่มีประวัติ</div>';return;}el.innerHTML=hist.slice(0,6).map(h=>`<div class="h-item"><div class="h-main">${h.r}</div><div class="h-sub">${h.d} ${h.t}</div></div>`).join('');}
+function clearHist(){hist.length=0;localStorage.removeItem('vatHist');renderHist();}
+renderHist();
+function showRes(id){const el=document.getElementById(id);el.style.display='block';requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth',block:'nearest'}));}
+function calcAdd(){const p=parseFloat(document.getElementById('a-price').value);if(!p){alert('กรุณากรอกราคาก่อน VAT');return;}const v=p*0.07,t=p+v;document.getElementById('a-total').textContent=fmt(t);document.getElementById('a-before').textContent=fmt(p)+' บาท';document.getElementById('a-vat').textContent=fmt(v)+' บาท';document.getElementById('a-detail').innerHTML=`ราคา <strong>${fmt(p)}</strong> + VAT <strong>${fmt(v)}</strong> บาท`;saveHist('รวม VAT = '+fmt(t)+' บาท','ก่อน VAT '+fmt(p)+' บาท');showRes('r0');}
+function calcExtract(){const t=parseFloat(document.getElementById('e-price').value);if(!t){alert('กรุณากรอกราคารวม VAT');return;}const b=t/1.07,v=t-b;document.getElementById('e-vat').textContent=fmt(v);document.getElementById('e-before').textContent=fmt(b)+' บาท';document.getElementById('e-total').textContent=fmt(t)+' บาท';document.getElementById('e-detail').innerHTML=`ราคารวม <strong>${fmt(t)}</strong> มี VAT <strong>${fmt(v)}</strong> บาทรวมอยู่`;saveHist('VAT = '+fmt(v)+' บาท','จากราคารวม '+fmt(t)+' บาท');showRes('r1');}
+function calcSC(){const f=parseFloat(document.getElementById('s-price').value);if(!f){alert('กรุณากรอกราคาอาหาร');return;}const sc=f*0.10,sub=f+sc,v=sub*0.07,t=sub+v,extra=t-f;document.getElementById('s-total').textContent=fmt(t);document.getElementById('s-food').textContent=fmt(f)+' บาท';document.getElementById('s-sc').textContent=fmt(sc)+' บาท';document.getElementById('s-vat').textContent=fmt(v)+' บาท';document.getElementById('s-extra').textContent=fmt(extra)+' บาท';document.getElementById('s-detail').innerHTML=`อาหาร <strong>${fmt(f)}</strong> + SC <strong>${fmt(sc)}</strong> + VAT <strong>${fmt(v)}</strong> บาท`;saveHist('จ่ายจริง = '+fmt(t)+' บาท','อาหาร '+fmt(f)+' บาท');showRes('r2');}
+function calcCustom(){const p=parseFloat(document.getElementById('c-price').value),r=parseFloat(document.getElementById('c-rate').value);if(!p||isNaN(r)){alert('กรุณากรอกข้อมูลให้ครบ');return;}const tx=p*r/100,t=p+tx;document.getElementById('c-total').textContent=fmt(t);document.getElementById('c-before').textContent=fmt(p)+' บาท';document.getElementById('c-tax').textContent=fmt(tx)+' บาท';document.getElementById('c-detail').innerHTML=`ราคา <strong>${fmt(p)}</strong> + ภาษี <strong>${r}%</strong> = <strong>${fmt(tx)}</strong> บาท`;saveHist('รวมภาษี = '+fmt(t)+' บาท','ภาษี '+r+'% = '+fmt(tx)+' บาท');showRes('r3');}
 </script>
 </body>
 </html>
