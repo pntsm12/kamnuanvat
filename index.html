@@ -62,9 +62,8 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 .dark-btn{width:32px;height:32px;border:1px solid var(--b0);border-radius:6px;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--t1);transition:all .15s;}
 .dark-btn:hover{border-color:var(--b1);color:var(--t0);background:var(--s1);}
 .dark-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
-.ad-bar{display:flex;justify-content:center;padding:8px 16px;background:var(--s1);border-bottom:1px solid var(--b0);}
-.ad-728{width:100%;max-width:728px;height:90px;background:var(--s0);border:1px dashed var(--b1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--t2);font-size:12px;}
-@media(max-width:600px){.ad-728{height:60px;}}
+.note-box{background:var(--s1);border:1px solid var(--b0);border-radius:var(--r);padding:10px 14px;font-size:12px;color:var(--t2);line-height:1.7;margin-top:8px;text-align:center;}
+.note-box strong{color:var(--t1);}
 .page{max-width:600px;margin:0 auto;padding:28px 20px 72px;}
 .page-hd{margin-bottom:20px;}
 .page-hd h1{font-family:'Noto Serif Thai',serif;font-size:clamp(22px,4vw,30px);font-weight:700;color:var(--t0);line-height:1.1;letter-spacing:-.3px;white-space:nowrap;}
@@ -111,6 +110,20 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 .h-main{font-size:15px;font-weight:600;color:var(--t0);}
 .h-sub{font-size:11px;color:var(--t2);margin-top:2px;}
 .h-empty{font-size:13px;color:var(--t2);padding:12px;text-align:center;}
+.note-box{background:var(--s1);border:1px solid var(--b0);border-radius:var(--r);padding:10px 14px;font-size:12px;color:var(--t2);line-height:1.7;margin-top:8px;text-align:center;}
+.note-box strong{color:var(--t1);}
+.info-wrap{margin-top:28px;border-top:1px solid var(--b0);padding-top:24px;}
+.info-h2{font-family:'Noto Serif Thai',serif;font-size:18px;font-weight:700;color:var(--t0);margin-bottom:8px;}
+.info-p{font-size:13px;color:var(--t1);line-height:1.7;margin-bottom:12px;}
+.info-table{background:var(--s1);border:1px solid var(--b0);border-radius:var(--r);overflow:hidden;}
+.it-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--b0);font-size:13px;}
+.it-row:last-child{border-bottom:none;}
+.it-row.head{font-weight:600;font-size:11px;color:var(--t2);letter-spacing:.04em;background:var(--s2);}
+.it-cell{padding:9px 12px;color:var(--t1);}
+.it-row.head .it-cell{color:var(--t2);}
+.it-row .it-cell:last-child{font-weight:600;color:var(--t0);}
+footer{border-top:1px solid var(--b0);padding:20px;text-align:center;font-size:12px;color:var(--t2);}
+footer a{color:var(--t2);text-decoration:none;}footer a:hover{color:var(--t1);}border-top:1px solid var(--b0);padding-top:24px;}
 .faq-wrap{margin-top:28px;border-top:1px solid var(--b0);padding-top:24px;}
 .faq-h2{font-family:'Noto Serif Thai',serif;font-size:18px;font-weight:700;color:var(--t0);margin-bottom:14px;}
 .faq-item{border:1px solid var(--b0);border-radius:var(--r);overflow:hidden;margin-bottom:8px;}
@@ -148,14 +161,11 @@ footer a{color:var(--t2);text-decoration:none;}footer a:hover{color:var(--t1);}
     </button>
   </div>
 </header>
-<div class="ad-bar" role="complementary" aria-label="โฆษณา">
-  <div class="ad-728"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1063556443578237" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-</div>
 
 <main id="main-content" class="page">
   <div class="page-hd">
     <h1>คำนวณ VAT</h1>
-    <p>คำนวณ VAT ภาษีมูลค่าเพิ่ม 7% ฟรี บวก VAT และถอด VAT จากราคารวม<br>รองรับ Service Charge ร้านอาหาร และปรับอัตรา % เอง</p>
+    <p>บวก VAT ถอด VAT จากราคารวม และคำนวณ VAT + Service Charge</p>
   </div>
 
   <div class="mode-tabs" role="tablist">
@@ -171,9 +181,10 @@ footer a{color:var(--t2);text-decoration:none;}footer a:hover{color:var(--t1);}
       <div class="field"><label class="lbl" for="a-price">ราคาก่อน VAT (บาท)</label>
         <div class="inp-row"><input type="number" id="a-price" placeholder="เช่น 1,000" inputmode="decimal"></div>
       </div>
-      <div class="hint">VAT 7% ตามอัตราปัจจุบันของประเทศไทย</div>
-      <button class="btn-calc" onclick="calcAdd()" type="button" style="margin-top:12px">คำนวณ</button>
+      <button class="btn-calc" onclick="calcAdd()" type="button" style="margin-top:4px">คำนวณ</button>
+      <div id="err0" style="display:none;margin-top:8px;font-size:13px;color:#ef4444;text-align:center;"></div>
     </div></div>
+    <div class="note-box">VAT 7% ตามอัตราปัจจุบันของไทย</div>
     <div class="result-box" id="r0">
       <div class="result-top">
         <div class="result-lbl">ราคารวม VAT</div>
@@ -192,10 +203,11 @@ footer a{color:var(--t2);text-decoration:none;}footer a:hover{color:var(--t1);}
     <div class="card"><div class="card-body">
       <div class="field"><label class="lbl" for="e-price">ราคารวม VAT แล้ว (บาท)</label>
         <div class="inp-row"><input type="number" id="e-price" placeholder="เช่น 1,070" inputmode="decimal"></div>
-        <div class="hint">กรอกราคาที่มี VAT รวมอยู่แล้ว เพื่อหาว่า VAT เท่าไหร่</div>
       </div>
       <button class="btn-calc" onclick="calcExtract()" type="button">คำนวณ</button>
+      <div id="err1" style="display:none;margin-top:8px;font-size:13px;color:#ef4444;text-align:center;"></div>
     </div></div>
+    <div class="note-box">กรอกราคาที่มี VAT รวมอยู่แล้ว เพื่อหาว่า VAT เท่าไหร่</div>
     <div class="result-box" id="r1">
       <div class="result-top">
         <div class="result-lbl">VAT ที่รวมอยู่</div>
@@ -214,10 +226,11 @@ footer a{color:var(--t2);text-decoration:none;}footer a:hover{color:var(--t1);}
     <div class="card"><div class="card-body">
       <div class="field"><label class="lbl" for="s-price">ราคาอาหาร (บาท)</label>
         <div class="inp-row"><input type="number" id="s-price" placeholder="เช่น 500" inputmode="decimal"></div>
-        <div class="hint">คำนวณ Service Charge 10% + VAT 7% แบบร้านอาหาร</div>
       </div>
       <button class="btn-calc" onclick="calcSC()" type="button">คำนวณ</button>
+      <div id="err2" style="display:none;margin-top:8px;font-size:13px;color:#ef4444;text-align:center;"></div>
     </div></div>
+    <div class="note-box">SC 10% คิดจากราคาอาหาร แล้ว VAT 7% คิดจากราคาอาหาร + SC รวม<br>ทำให้บวกเพิ่มทั้งหมด 17.7% จากราคาอาหารที่ตั้ง</div>
     <div class="result-box" id="r2">
       <div class="result-top">
         <div class="result-lbl">ราคาที่ต้องจ่ายจริง</div>
@@ -241,6 +254,7 @@ footer a{color:var(--t2);text-decoration:none;}footer a:hover{color:var(--t1);}
         <div class="field"><label class="lbl" for="c-rate">อัตราภาษี (%)</label><div class="inp-row"><input type="number" id="c-rate" placeholder="เช่น 10" inputmode="decimal"><div class="inp-suf" aria-hidden="true">%</div></div></div>
       </div>
       <button class="btn-calc" onclick="calcCustom()" type="button">คำนวณ</button>
+      <div id="err3" style="display:none;margin-top:8px;font-size:13px;color:#ef4444;text-align:center;"></div>
     </div></div>
     <div class="result-box" id="r3">
       <div class="result-top">
@@ -263,23 +277,37 @@ footer a{color:var(--t2);text-decoration:none;}footer a:hover{color:var(--t1);}
   <div class="faq-wrap">
     <h2 class="faq-h2">คำถามที่พบบ่อย</h2>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">VAT 7% คืออะไร ใครต้องจ่าย?<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">VAT 7% คืออะไร ใครต้องจ่าย<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
       <div class="faq-a">VAT หรือภาษีมูลค่าเพิ่ม 7% คือภาษีที่เก็บจากการซื้อขายสินค้าและบริการในไทย ผู้บริโภคเป็นผู้จ่ายผ่านราคาสินค้า ผู้ประกอบการที่จดทะเบียน VAT มีหน้าที่เก็บและนำส่งกรมสรรพากร</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">แยก VAT ออกจากราคารวมยังไง?<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">แยก VAT ออกจากราคารวมยังไง<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
       <div class="faq-a">ราคาก่อน VAT = ราคารวม ÷ 1.07 เช่น ราคารวม <strong>107 บาท</strong> ราคาก่อน VAT = 107÷1.07 = <strong>100 บาท</strong> VAT = 7 บาท</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Service Charge คืออะไร คิดยังไง?<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">Service Charge คืออะไร คิดยังไง<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
       <div class="faq-a">Service Charge 10% คือค่าบริการที่ร้านอาหารเก็บเพิ่ม VAT 7% คิดจากราคาอาหาร + SC รวม ทำให้ราคาสุดท้ายบวกเพิ่มจากราคาอาหาร <strong>17.7%</strong></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">ราคา VAT รวม กับ VAT แยก ต่างกันยังไง?<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">ราคา VAT รวม กับ VAT แยก ต่างกันยังไง<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
       <div class="faq-a">ราคา VAT รวม คือราคาที่มี VAT อยู่แล้ว เช่น 107 บาท ราคา VAT แยก คือราคาก่อน VAT 100 บาท + VAT 7 บาท ใบกำกับภาษีมักแสดงแบบแยก</div>
     </div>
   </div>
 
+  <!-- Info section -->
+  <div class="info-wrap">
+    <h2 class="info-h2">ตัวอย่างการคำนวณ VAT</h2>
+    <p class="info-p">เปรียบเทียบราคาก่อน VAT กับราคารวม VAT 7%</p>
+    <div class="info-table">
+      <div class="it-row head"><div class="it-cell">ราคาก่อน VAT</div><div class="it-cell">VAT 7%</div><div class="it-cell">ราคารวม VAT</div></div>
+      <div class="it-row"><div class="it-cell">100 บาท</div><div class="it-cell">7 บาท</div><div class="it-cell">107 บาท</div></div>
+      <div class="it-row"><div class="it-cell">500 บาท</div><div class="it-cell">35 บาท</div><div class="it-cell">535 บาท</div></div>
+      <div class="it-row"><div class="it-cell">1,000 บาท</div><div class="it-cell">70 บาท</div><div class="it-cell">1,070 บาท</div></div>
+      <div class="it-row"><div class="it-cell">5,000 บาท</div><div class="it-cell">350 บาท</div><div class="it-cell">5,350 บาท</div></div>
+    </div>
+  </div>
+
+  <!-- Related -->
   <div class="related-wrap">
     <div class="related-lbl">เครื่องมือที่เกี่ยวข้อง</div>
     <div class="related-grid">
@@ -292,7 +320,7 @@ footer a{color:var(--t2);text-decoration:none;}footer a:hover{color:var(--t1);}
 </main>
 
 <footer role="contentinfo">
-  <p>© 2569 คำนวณ <a href="/">หน้าหลัก</a> <a href="/privacy.html">นโยบายความเป็นส่วนตัว</a></p>
+  <p>© 2569 คำนวณ · <a href="/">หน้าหลัก</a> · <a href="/privacy.html">นโยบายความเป็นส่วนตัว</a></p>
 </footer>
 
 <script>
@@ -310,10 +338,10 @@ function renderHist(){const el=document.getElementById('histList');if(!hist.leng
 function clearHist(){hist.length=0;localStorage.removeItem('vatHist');renderHist();}
 renderHist();
 function showRes(id){const el=document.getElementById(id);el.style.display='block';requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth',block:'nearest'}));}
-function calcAdd(){const p=parseFloat(document.getElementById('a-price').value);if(!p){alert('กรุณากรอกราคาก่อน VAT');return;}const v=p*0.07,t=p+v;document.getElementById('a-total').textContent=fmt(t);document.getElementById('a-before').textContent=fmt(p)+' บาท';document.getElementById('a-vat').textContent=fmt(v)+' บาท';document.getElementById('a-detail').innerHTML=`ราคา <strong>${fmt(p)}</strong> + VAT <strong>${fmt(v)}</strong> บาท`;saveHist('รวม VAT = '+fmt(t)+' บาท','ก่อน VAT '+fmt(p)+' บาท');showRes('r0');}
-function calcExtract(){const t=parseFloat(document.getElementById('e-price').value);if(!t){alert('กรุณากรอกราคารวม VAT');return;}const b=t/1.07,v=t-b;document.getElementById('e-vat').textContent=fmt(v);document.getElementById('e-before').textContent=fmt(b)+' บาท';document.getElementById('e-total').textContent=fmt(t)+' บาท';document.getElementById('e-detail').innerHTML=`ราคารวม <strong>${fmt(t)}</strong> มี VAT <strong>${fmt(v)}</strong> บาทรวมอยู่`;saveHist('VAT = '+fmt(v)+' บาท','จากราคารวม '+fmt(t)+' บาท');showRes('r1');}
-function calcSC(){const f=parseFloat(document.getElementById('s-price').value);if(!f){alert('กรุณากรอกราคาอาหาร');return;}const sc=f*0.10,sub=f+sc,v=sub*0.07,t=sub+v,extra=t-f;document.getElementById('s-total').textContent=fmt(t);document.getElementById('s-food').textContent=fmt(f)+' บาท';document.getElementById('s-sc').textContent=fmt(sc)+' บาท';document.getElementById('s-vat').textContent=fmt(v)+' บาท';document.getElementById('s-extra').textContent=fmt(extra)+' บาท';document.getElementById('s-detail').innerHTML=`อาหาร <strong>${fmt(f)}</strong> + SC <strong>${fmt(sc)}</strong> + VAT <strong>${fmt(v)}</strong> บาท`;saveHist('จ่ายจริง = '+fmt(t)+' บาท','อาหาร '+fmt(f)+' บาท');showRes('r2');}
-function calcCustom(){const p=parseFloat(document.getElementById('c-price').value),r=parseFloat(document.getElementById('c-rate').value);if(!p||isNaN(r)){alert('กรุณากรอกข้อมูลให้ครบ');return;}const tx=p*r/100,t=p+tx;document.getElementById('c-total').textContent=fmt(t);document.getElementById('c-before').textContent=fmt(p)+' บาท';document.getElementById('c-tax').textContent=fmt(tx)+' บาท';document.getElementById('c-detail').innerHTML=`ราคา <strong>${fmt(p)}</strong> + ภาษี <strong>${r}%</strong> = <strong>${fmt(tx)}</strong> บาท`;saveHist('รวมภาษี = '+fmt(t)+' บาท','ภาษี '+r+'% = '+fmt(tx)+' บาท');showRes('r3');}
+function calcAdd(){const p=parseFloat(document.getElementById('a-price').value);const err=document.getElementById('err0');if(!p){err.textContent='กรุณากรอกราคาก่อน VAT';err.style.display='block';return;}err.style.display='none';const v=p*0.07,t=p+v;document.getElementById('a-total').textContent=fmt(t);document.getElementById('a-before').textContent=fmt(p)+' บาท';document.getElementById('a-vat').textContent=fmt(v)+' บาท';document.getElementById('a-detail').innerHTML=`ราคา <strong>${fmt(p)}</strong> + VAT <strong>${fmt(v)}</strong> บาท`;saveHist('รวม VAT = '+fmt(t)+' บาท','ก่อน VAT '+fmt(p)+' บาท');showRes('r0');}
+function calcExtract(){const t=parseFloat(document.getElementById('e-price').value);const err=document.getElementById('err1');if(!t){err.textContent='กรุณากรอกราคารวม VAT';err.style.display='block';return;}err.style.display='none';const b=t/1.07,v=t-b;document.getElementById('e-vat').textContent=fmt(v);document.getElementById('e-before').textContent=fmt(b)+' บาท';document.getElementById('e-total').textContent=fmt(t)+' บาท';document.getElementById('e-detail').innerHTML=`ราคารวม <strong>${fmt(t)}</strong> มี VAT <strong>${fmt(v)}</strong> บาทรวมอยู่`;saveHist('VAT = '+fmt(v)+' บาท','จากราคารวม '+fmt(t)+' บาท');showRes('r1');}
+function calcSC(){const f=parseFloat(document.getElementById('s-price').value);const err=document.getElementById('err2');if(!f){err.textContent='กรุณากรอกราคาอาหาร';err.style.display='block';return;}err.style.display='none';const sc=f*0.10,sub=f+sc,v=sub*0.07,t=sub+v,extra=t-f;document.getElementById('s-total').textContent=fmt(t);document.getElementById('s-food').textContent=fmt(f)+' บาท';document.getElementById('s-sc').textContent=fmt(sc)+' บาท';document.getElementById('s-vat').textContent=fmt(v)+' บาท';document.getElementById('s-extra').textContent=fmt(extra)+' บาท';document.getElementById('s-detail').innerHTML=`อาหาร <strong>${fmt(f)}</strong> + SC <strong>${fmt(sc)}</strong> + VAT <strong>${fmt(v)}</strong> บาท`;saveHist('จ่ายจริง = '+fmt(t)+' บาท','อาหาร '+fmt(f)+' บาท');showRes('r2');}
+function calcCustom(){const p=parseFloat(document.getElementById('c-price').value),r=parseFloat(document.getElementById('c-rate').value);const err=document.getElementById('err3');if(!p||isNaN(r)){err.textContent='กรุณากรอกราคาและอัตราภาษีให้ครบ';err.style.display='block';return;}err.style.display='none';const tx=p*r/100,t=p+tx;document.getElementById('c-total').textContent=fmt(t);document.getElementById('c-before').textContent=fmt(p)+' บาท';document.getElementById('c-tax').textContent=fmt(tx)+' บาท';document.getElementById('c-detail').innerHTML=`ราคา <strong>${fmt(p)}</strong> + ภาษี <strong>${r}%</strong> = <strong>${fmt(tx)}</strong> บาท`;saveHist('รวมภาษี = '+fmt(t)+' บาท','ภาษี '+r+'% = '+fmt(tx)+' บาท');showRes('r3');}
 </script>
 </body>
 </html>
