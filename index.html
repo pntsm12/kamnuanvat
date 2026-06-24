@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://kamnuan.net/kamnuanvat/">
 <meta property="og:locale" content="th_TH">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"คำนวณ VAT","url":"https://kamnuan.net/kamnuanvat/","description":"คำนวณ VAT 7% บวก VAT แยก VAT และ Service Charge","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"THB"},"inLanguage":"th"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"VAT 7% คืออะไร ใครต้องจ่าย","acceptedAnswer":{"@type":"Answer","text":"VAT หรือภาษีมูลค่าเพิ่ม 7% คือภาษีที่เก็บจากการซื้อขายสินค้าและบริการในไทย ผู้บริโภคจ่ายผ่านราคาสินค้า ผู้ประกอบการที่จดทะเบียน VAT มีหน้าที่เก็บและนำส่งกรมสรรพากร"}},{"@type":"Question","name":"แยก VAT ออกจากราคารวมยังไง","acceptedAnswer":{"@type":"Answer","text":"ราคาก่อน VAT = ราคารวม ÷ 1.07 เช่น 107 ÷ 1.07 = 100 บาท VAT = 7 บาท"}},{"@type":"Question","name":"Service Charge คืออะไร คิดยังไง","acceptedAnswer":{"@type":"Answer","text":"Service Charge 10% คิดจากราคาอาหาร แล้ว VAT 7% คิดจากราคาอาหาร + SC รวม ทำให้บวกเพิ่มทั้งหมด 17.7%"}},{"@type":"Question","name":"ราคา VAT รวม กับ VAT แยก ต่างกันยังไง","acceptedAnswer":{"@type":"Answer","text":"VAT รวม คือราคาที่มี VAT อยู่แล้ว เช่น 107 บาท / VAT แยก คือราคาก่อน VAT + VAT แสดงแยก เช่น 100 + 7 บาท"}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"คำนวณ VAT","url":"https://kamnuan.net/kamnuanvat/","description":"คำนวณ VAT 7% บวก VAT แยก VAT และ Service Charge","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"THB"},"inLanguage":"th"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"VAT 7% คืออะไร ใครต้องจ่าย","acceptedAnswer":{"@type":"Answer","text":"VAT หรือภาษีมูลค่าเพิ่ม 7% คือภาษีที่เก็บจากการซื้อขายสินค้าและบริการในไทย ผู้บริโภคจ่ายผ่านราคาสินค้า ผู้ประกอบการที่จดทะเบียน VAT มีหน้าที่เก็บและนำส่งกรมสรรพากร"}},{"@type":"Question","name":"แยก VAT ออกจากราคารวมยังไง","acceptedAnswer":{"@type":"Answer","text":"ราคาก่อน VAT = ราคารวม ÷ 1.07 เช่น 107 ÷ 1.07 = 100 บาท VAT = 7 บาท"}},{"@type":"Question","name":"Service Charge คืออะไร คิดยังไง","acceptedAnswer":{"@type":"Answer","text":"Service Charge 10% คิดจากราคาอาหาร แล้ว VAT 7% คิดจากราคาอาหาร + SC รวม ทำให้บวกเพิ่มทั้งหมด 17.7%"}},{"@type":"Question","name":"ราคา VAT รวม กับ VAT แยก ต่างกันยังไง","acceptedAnswer":{"@type":"Answer","text":"VAT รวม คือราคาที่มี VAT อยู่แล้ว เช่น 107 บาท / VAT แยก คือราคาก่อน VAT + VAT แสดงแยก เช่น 100 + 7 บาท"}},{"@type":"Question","name":"ปฏิเสธไม่จ่าย Service Charge ได้ไหม","acceptedAnswer":{"@type":"Answer","text":"ตามประกาศคณะกรรมการกลางว่าด้วยราคาสินค้าและบริการ ร้านมีสิทธิเรียกเก็บ Service Charge ได้ แต่ต้องแสดงให้ชัดเจนล่วงหน้าควบคู่กับราคาอาหาร หากร้านไม่แจ้งล่วงหน้าหรือแจ้งไม่ชัดเจน ลูกค้ามีสิทธิ์ทักท้วงหรือปฏิเสธได้"}}]}]}
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1063556443578237" crossorigin="anonymous"></script>
 <link rel="icon" href="favicon.ico">
@@ -86,8 +86,12 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 .h-sub{font-size:12px;color:#96938C;margin-top:2px;}
 
 .info-wrap{margin-top:28px;padding-top:24px;border-top:1px solid var(--b0);}
-.info-wrap h2{font-family:'Noto Serif Thai',serif;font-size:16px;font-weight:700;color:#18181A;margin-bottom:8px;}
-.info-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px;}
+.info-item{margin-bottom:16px;}
+.info-item:last-child{margin-bottom:0;}
+.info-title{font-size:14px;font-weight:600;color:#18181A;margin-bottom:6px;}
+.info-text{font-size:13px;color:#52504C;line-height:1.7;}
+.info-table-wrap{margin-top:8px;}
+.info-table{width:100%;border-collapse:collapse;font-size:13px;}
 .info-table th{padding:8px 12px;text-align:left;font-size:11px;font-weight:600;color:#96938C;border-bottom:1px solid var(--b0);background:#EFEFEC;}
 .info-table td{padding:9px 12px;color:#52504C;border-bottom:1px solid var(--b0);}
 .info-table tr:last-child td{border-bottom:none;}
@@ -113,6 +117,13 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 footer{border-top:1px solid var(--b0);padding:20px 16px;text-align:center;font-size:12px;color:#96938C;line-height:2;}
 footer a{color:#96938C;text-decoration:none;}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5RPQNBN2DZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5RPQNBN2DZ');
+</script>
 </head>
 <body>
 
@@ -271,19 +282,30 @@ footer a{color:#96938C;text-decoration:none;}
       <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">ราคา VAT รวม กับ VAT แยก ต่างกันยังไง<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
       <div class="faq-a"><strong>VAT รวม</strong> คือราคาที่มี VAT อยู่แล้ว เช่น 107 บาท / <strong>VAT แยก</strong> คือราคาก่อน VAT + VAT แสดงแยก เช่น 100 + 7 บาท ใบกำกับภาษีมักแสดงแบบแยก</div>
     </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" type="button">ปฏิเสธไม่จ่าย Service Charge ได้ไหม<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a">ตามประกาศคณะกรรมการกลางว่าด้วยราคาสินค้าและบริการ ร้านมีสิทธิเรียกเก็บ Service Charge ได้ แต่ต้องแสดงให้ชัดเจนล่วงหน้าควบคู่กับราคาอาหาร เพื่อให้ลูกค้าตัดสินใจก่อนสั่งได้ หากร้านไม่แจ้งล่วงหน้าหรือแจ้งไม่ชัดเจน ลูกค้ามีสิทธิ์ทักท้วงหรือปฏิเสธได้</div>
+    </div>
   </div>
-
   <div class="info-wrap">
-    <h2>ตัวอย่างการคำนวณ VAT 7%</h2>
-    <table class="info-table">
-      <thead><tr><th>ราคาก่อน VAT</th><th>VAT 7%</th><th>ราคารวม VAT</th></tr></thead>
-      <tbody>
-        <tr><td>100 บาท</td><td>7 บาท</td><td>107 บาท</td></tr>
-        <tr><td>500 บาท</td><td>35 บาท</td><td>535 บาท</td></tr>
-        <tr><td>1,000 บาท</td><td>70 บาท</td><td>1,070 บาท</td></tr>
-        <tr><td>5,000 บาท</td><td>350 บาท</td><td>5,350 บาท</td></tr>
-      </tbody>
-    </table>
+    <div class="info-item">
+      <div class="info-title">ทำไมร้านอาหารคิด Service Charge ก่อน VAT</div>
+      <div class="info-text">Service Charge ถือเป็นรายได้ค่าบริการของร้าน เมื่อรวมกับราคาอาหารแล้วจะกลายเป็นมูลค่าสินค้าและบริการทั้งหมดที่ต้องเสีย VAT ตามกฎหมาย จึงต้องคิด SC ก่อนแล้วค่อยคิด VAT จากยอดรวมนั้นอีกที ทำให้ราคาสุทธิเพิ่มขึ้นจริง 17.7% ไม่ใช่แค่ 17% ตามที่หลายคนเข้าใจ</div>
+    </div>
+    <div class="info-item">
+      <div class="info-title">ตัวอย่างการคำนวณ VAT 7%</div>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <thead><tr><th>ราคาก่อน VAT</th><th>VAT 7%</th><th>ราคารวม VAT</th></tr></thead>
+          <tbody>
+            <tr><td>100 บาท</td><td>7 บาท</td><td>107 บาท</td></tr>
+            <tr><td>500 บาท</td><td>35 บาท</td><td>535 บาท</td></tr>
+            <tr><td>1,000 บาท</td><td>70 บาท</td><td>1,070 บาท</td></tr>
+            <tr><td>5,000 บาท</td><td>350 บาท</td><td>5,350 บาท</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
   <div class="related-wrap">
@@ -392,7 +414,7 @@ function calcCustom(){
 function renderHist(){
   const el=document.getElementById('histList');
   if(!hist.length){el.innerHTML='<div class="h-empty">ยังไม่มีประวัติ</div>';return;}
-  el.innerHTML=hist.map(h=>`<div class="h-item"><div class="h-main">${h.main}</div><div class="h-sub">${h.sub} — ${h.t}</div></div>`).join('');
+  el.innerHTML=hist.map(h=>`<div class="h-item"><div class="h-main">${h.main}</div><div class="h-sub">${h.sub} (${h.t})</div></div>`).join('');
 }
 function clearHist(){hist.length=0;try{localStorage.removeItem('kamnuan_vatHist');}catch(e){}renderHist();}
 renderHist();
